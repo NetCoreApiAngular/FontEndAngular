@@ -1,0 +1,79 @@
+<div class="row mx-0">
+    <div class="col-12">
+        <form class="rounded p-2" #form="ngForm">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <h3>input</h3>
+                    <mat-form-field class="w-100">
+                        <input matInput autocomplete="off" placeholder="Mã nhân viên" name="employeeCode"
+                            [(ngModel)]="employee.employeeCode" #employeeCode="ngModel" required />
+                        <mat-error
+                            *ngIf="employeeCode.invalid && (employeeCode.dirty || employeeCode.touched || form.submitted)">
+                            <span *ngIf="employeeCode.errors?.required"
+                                [innerHTML]="'Commons.Errors.ErrRequired' | translate"></span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <h3>Datepicker</h3>
+                    <mat-form-field class="w-100">
+                        <input matInput autocomplete="off" [matDatepicker]="dob" placeholder="Ngày sinh" name="dob"
+                            [(ngModel)]="employee.dateOfBirth" #datepicker1="ngModel" required />
+                        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                        <mat-datepicker #dob></mat-datepicker>
+                        <mat-error
+                            *ngIf="datepicker1.invalid && (datepicker1.dirty || datepicker1.touched || form.submitted)">
+                            <span *ngIf="datepicker1.errors?.required"
+                                [innerHTML]="'Commons.Errors.ErrRequired' | translate"></span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <h3>select</h3>
+                    <mat-form-field class="w-100">
+                        <mat-select name="issuerPlaceId" [(ngModel)]="employee.issuerPlaceId" #issuerPlaceId="ngModel"
+                            placeholder="Nơi cấp" required>
+                            <mat-option *ngFor="let place of listPlaceCode" [value]="place.issuerPlaceId">
+                                {{place.name}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error
+                            *ngIf="issuerPlaceId.invalid && (issuerPlaceId.dirty || issuerPlaceId.touched || form.submitted)">
+                            <span *ngIf="issuerPlaceId.errors?.required"
+                                [innerHTML]="'Commons.Errors.ErrRequired' | translate"></span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <h3>radio</h3>
+            <div class="row align-items-baseline my-3">
+                <label class="col-2">Tình trạng hôn nhân</label>
+                <div class="col-8">
+                    <mat-radio-group name="marries" #marriage="ngModel" [(ngModel)]="employee.marriage">
+                        <mat-radio-button class="px-2" *ngFor="let mr of listMarries" [value]="mr.value">
+                            {{mr.viewValue}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+            <h3>button</h3>
+            <div class="row align-items-center px-3">
+                <button type="submit" mat-flat-button color="primary" class="custom-btn mr-3">
+                    Tạo mới
+                </button>
+                <button mat-flat-button class="btn-success mr-3">
+                    <mat-icon>add</mat-icon>
+                    <span class="ml-1">Thêm mới</span>
+                </button>
+                <button mat-flat-button class="custom-btn btn-gray mr-3" type="button">Hủy</button>
+                <button mat-stroked-button class="text-secondary ml-1">
+                    <mat-icon>filter_list</mat-icon>
+                    <span class="mx-2">Bộ lọc</span>
+                    <i class="fa fa-caret-up"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="wrapper w-100">
+    <div class="grids">
+        <div *ngFor="let item of itemList; let i = index">
+            <div *ngIf="toggleParent">
+                <button type="button" class="btn color-white">
+                  <div class="grid__item">
+
+                      <span>{{item.title}}</span>
+                  </div>
+                </button>
+            </div>
+
+            <div *ngIf="!toggleParent && i == selectedIndex">
+                <app-group *ngIf="item.type === 'group'" [itemList]='item.children'></app-group>
+                <!-- <app-collapsable *ngIf="item.type === 'collapsable'" [itemList]="itemList" [index]='selectedIndex'></app-collapsable> -->
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

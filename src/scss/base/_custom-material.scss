@@ -1,0 +1,236 @@
+// Pagination
+mat-paginator {
+  .mat-form-field-infix {
+    padding   : 0 !important;
+    border-top: 0 !important;
+  }
+
+  .mat-paginator-range-label,
+  button {
+    color: #333 !important;
+  }
+
+  .mat-paginator-container {
+    background: #FBFDFE !important;
+  }
+}
+
+.mat-paginator-container {
+  justify-content: space-between !important;
+}
+
+.theme-indigo-pink,
+.theme-purple-amber {
+  .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: #64748B;
+  }
+}
+
+.mat-table-sticky {
+  background-color: #f4f4f4 !important;
+}
+
+mat-checkbox {
+  label {
+    margin-bottom: 0 !important;
+  }
+}
+
+.mat-footer-row {
+  .mat-column-noData {
+    padding: 5px 0 !important;
+  }
+}
+
+.custom-matMenu {
+  .mat-icon {
+    color: #3f9fee !important;
+  }
+}
+
+.mat-tooltip {
+  font-size: 14px !important;
+}
+
+mat-icon {
+  color: #606060;
+}
+
+.custom-mat-icon {
+  color    : rgba($color: #000000, $alpha: 0.6) !important;
+  font-size: 27px;
+}
+
+.mat-flat-button {
+  line-height: 30px !important;
+}
+
+.mat-button {
+  line-height: 30px !important;
+
+  .mat-icon {
+    font-size: 16px !important;
+  }
+
+  span {
+    font-size: 13px !important;
+  }
+}
+
+.material-icons {
+  font-size: 16px !important;
+  height   : auto !important;
+}
+
+td .mat-icon-button {
+  width      : 30px !important;
+  height     : 30px !important;
+  line-height: 30px !important;
+}
+
+.mat-menu-item {
+  line-height: 40px !important;
+  height     : 40px !important;
+  padding    : 0 10px !important;
+}
+
+.mat-paginator-range-actions {
+  button:disabled {
+    opacity: .3 !important;
+    cursor : no-drop;
+  }
+
+  .mat-icon-button {
+    width      : 30px !important;
+    height     : 30px !important;
+    line-height: 30px !important;
+  }
+
+  .mat-paginator-icon {
+    width: 20px !important;
+  }
+}
+
+.custom-foster-toxic {
+  .mat-paginator-outer-container {
+    .mat-paginator-container {
+      background   : #fff !important;
+      padding-left : 0 !important;
+      padding-right: 0 !important;
+
+      .mat-paginator-page-size-select {
+        margin-left: 0 !important;
+      }
+    }
+  }
+}
+
+.multiline-tooltip {
+  white-space: pre-line;
+}
+
+span.mat-date-range-input-separator {
+  margin-left: -1rem !important;
+}
+
+button.mat-primary {
+  background      : transparent !important;
+  color           : #3f51b5 !important;
+  // border-radius: 0 !important;
+  border-bottom   : 2px solid #3f51b5;
+  display         : inline-flex;
+  align-items     : center;
+  justify-content : center;
+  line-height     : 1.5 !important;
+  cursor          : pointer;
+  padding         : .25rem 1.25rem !important;
+
+  mat-icon {
+    color: #3f51b5 !important;
+  }
+
+  span {
+    font-size: 13px;
+
+  }
+
+  &:focus,
+  &:active {
+    background: transparent !important;
+    outline   : none !important;
+    box-shadow: none !important;
+  }
+}
+
+.mat-warn {
+  display        : inline-flex;
+  align-items    : center;
+  justify-content: center;
+  line-height    : 1.5 !important;
+  border-bottom  : 2px solid #f44336 !important;
+
+  padding: .25rem 1.25rem !important;
+}
+
+.mat-button-disabled {
+  background-color: transparent !important;
+  color           : rgba(0, 0, 0, 0.26) !important;
+  border-bottom   : 2px solid rgba(0, 0, 0, 0.26) !important;
+
+  span {
+    color: rgba(0, 0, 0, 0.26) !important;
+  }
+}
+
+.mat-tab-label,
+.mat-tab-link {
+  font-weight: normal !important;
+}
+
+.mat-menu-panel {
+  margin-top: 1rem;
+  min-height: 45px !important;
+}
+
+.mat-tab-label {
+  opacity: 1 !important;
+}
+
+.mat-dialog-title {
+  cursor: move;
+}
+
+.mat-checkbox.mat-accent {
+  .mat-checkbox-inner-container {
+    margin: 2px 8px auto 0 !important;
+  }
+}
+
+#btn-config.mat-button span {
+  margin: 0 1rem !important;
+}
+
+.mat-date-range-input-start-wrapper .mat-date-range-input-inner {
+  top: .375rem !important;
+}
+
+td.mat-footer-cell:first-of-type {
+  padding: 0rem 0.5rem !important;
+}
+
+.mat-form-field-required-marker {
+  color: red;
+}
+
+.mat-chip.mat-standard-chip {
+  background-color: white !important;
+  padding: 0 !important;
+  margin: 0;
+  font-size: 12px;
+  height: 34px;
+  font-weight: normal;
+}
+
+:host::ng-deep.mat-chip-list-wrapper {
+  padding-left: 10px;
+}

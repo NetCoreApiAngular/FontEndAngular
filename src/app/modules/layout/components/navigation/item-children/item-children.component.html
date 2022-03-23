@@ -1,0 +1,45 @@
+<ng-container *ngIf="!item.hidden">
+
+    <!-- item.routerLink-->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="item.routerLink && !item.externalUrl && !item.function"
+        [routerLink]="item.routerLink"
+        [target]="item.openInNewTab ? '_blank' : '_self'">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- item.externalUrl -->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink && item.externalUrl && !item.function"
+        [href]="item.externalUrl" [target]="item.openInNewTab ? '_blank' : '_self'">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+    <!-- item.function -->
+    <span class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink && !item.externalUrl && item.function"
+        (click)="item.function()">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </span>
+
+    <!-- item.routerLink && item.function -->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="item.routerLink && !item.externalUrl && item.function"
+        [routerLink]="item.routerLink" [target]="item.openInNewTab ? '_blank' : '_self'"
+        (click)="item.function()">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- item.externalUrl && item.function -->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink && item.externalUrl && item.function"
+        [href]="item.externalUrl" [target]="item.openInNewTab ? '_blank' : '_self'"
+        (click)="item.function()">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+    <ng-template #itemContent >
+        <div id="box-children-item" class="d-flex align-items-center">
+            <!-- <mat-icon class="nav-link-icon" *ngIf="item.icon" fontSet="material-icons-outlined">{{item.icon}}</mat-icon> -->
+            <img style="margin-right: 7px" src="{{item.icon}}" alt="">
+            <span class="nav-link-title"  [innerHTML]="_i18nService.getTransByKey(item.translateKey)"></span>
+            <span class="nav-link-badge" *ngIf="item.badge"
+                [ngStyle]="{'background-color': item.badge.bg,'color': item.badge.color}">
+                {{item.badge.title}}
+            </span>
+        </div>
+    </ng-template>
+</ng-container>

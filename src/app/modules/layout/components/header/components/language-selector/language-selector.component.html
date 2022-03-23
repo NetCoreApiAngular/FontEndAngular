@@ -1,0 +1,20 @@
+<div class="language-seletor">
+    <button mat-button class="language-toggle" [matMenuTriggerFor]="languageMenu">
+        <div class="toggler-img">
+            <img src="assets/images/{{currentLanguage.image}}" alt="user avatar">
+        </div>
+    </button>
+    <mat-menu #languageMenu="matMenu" [overlapTrigger]="false" xPosition="before">
+        <ul class="language-list">
+            <li mat-menu-item class="language-item" *ngFor="let lang of languages; index as i"
+                (click)="onSetLanguage(lang)">
+                <div class="lang-icon">
+                    <img src="assets/images/{{lang.flag}}" alt="{{lang.title}}">
+                </div>
+                <div class="lang-title">
+                    {{lang.title}}
+                </div>
+            </li>
+        </ul>
+    </mat-menu>
+</div>

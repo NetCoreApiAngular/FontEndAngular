@@ -1,0 +1,12 @@
+<div class="wrapper w-100">
+    <div class="grids">
+        <div *ngFor="let item of item.children">
+            <button type="button" class="btn color-white" (click)="onGoToUrl(item)">
+                <div class="grid__item">
+                    <span>{{item.title}}</span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+</div>

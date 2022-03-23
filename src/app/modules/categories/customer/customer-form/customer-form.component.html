@@ -1,0 +1,53 @@
+<div class="row mx-0">
+    <div class="col-12 mb-2">
+        <h1>
+            {{ isUpdateMode ? "Cập nhật Khách hàng" :
+            "Tạo mới Khách hàng"}}
+        </h1>
+    </div>
+    <div class="col-12 mt-2 px-4">
+        <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+            <div class="row mx-0 align-items-baseline">
+                <mat-form-field class="col-md-4">
+                    <mat-label>Mã khách hàng</mat-label>
+                    <input matInput [formControl]="code" required />
+                    <mat-error *ngIf="code.invalid && code.touched">
+                        <span *ngIf="code?.hasError('required')">Đây là trường bắt buộc</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>Tên khách hàng</mat-label>
+                    <input matInput [formControl]="name" required />
+                    <mat-error *ngIf="name.invalid && name.touched">
+                        <span *ngIf="name?.hasError('required')">Đây là trường bắt buộc</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4">
+                    <mat-label>Mã số thuế</mat-label>
+                    <input matInput [formControl]="taxCode"/>
+                    <mat-error *ngIf="taxCode.invalid && taxCode.touched">
+                        <span *ngIf="taxCode?.hasError('required')">Đây là trường bắt buộc</span>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-12">
+                    <mat-label>Ghi chú</mat-label>
+                    <input matInput [formControl]="description" />
+                </mat-form-field>
+
+                <div class="col-12 text-right">
+                    <button mat-flat-button color="primary" class="custom-btn mr-2" type="submit"
+                        [disabled]="clientState.isBusy || !formData.valid">
+                        {{ isUpdateMode ? "Cập nhật" : "Tạo mới" }}
+                    </button>
+                    <button *ngIf="roleService.actionIsAllow('Customer', 'Listing')" mat-flat-button
+                        class="custom-btn btn-gray" (click)="onBack()" type="button">
+                        Hủy
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

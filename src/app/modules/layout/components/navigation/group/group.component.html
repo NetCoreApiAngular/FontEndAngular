@@ -1,0 +1,21 @@
+<ng-container>
+
+    <!-- <div class="group-title" [ngClass]="item.classes">
+        <span class="hint-text">{{ item.title }}</span>
+        <span class="hint-text-icon">
+            <i class="material-icons outlined">
+                more_horiz
+            </i>
+        </span>
+    </div> -->
+
+    <div class="group-items d-flex h-100">
+        <ng-container *ngFor="let item of allNav.children; let last = last">
+            <nav-group *ngIf="item.type=='group' " [item]="item"></nav-group>
+            <nav-collapsable *ngIf="item.type=='collapsable'" [item]="item" [last]="last"></nav-collapsable>
+            <!-- <nav-collapsable *ngIf="item.type=='collapsable' && item.isActive" [item]="item"></nav-collapsable> -->
+            <nav-item *ngIf="item.type=='item'" [item]="item"></nav-item>
+        </ng-container>
+    </div>
+
+</ng-container>

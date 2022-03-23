@@ -1,0 +1,15 @@
+<mat-form-field class="w-100">
+  <mat-label>{{label}}</mat-label>
+  <input matInput [matDatepicker]="datePicker" [min]="minDay" [max]="maxDay" [formControl]="date" [required]="required" (change)="onChange()" (dateChange)="onDateSelectChange()">
+  <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+  <mat-datepicker #datePicker panelClass="example-month-picker">
+  </mat-datepicker>
+  <mat-error *ngIf="date?.invalid">
+      <span *ngIf="date?.hasError('required')">Đây là trường bắt buộc</span>
+      <span *ngIf="date?.hasError('minDate') && !date?.hasError('required')">Ngày tháng tạo không được nhỏ hơn Tháng Lương*</span>
+      <span *ngIf="date?.hasError('matDatepickerMin')">Ngày tháng tạo không được nhỏ hơn Tháng Lương*</span>
+      <span *ngIf="date?.hasError('maxDate') && !date?.hasError('required')">Ngày tháng tạo không được lớn hơn Tháng Lương*</span>
+      <span *ngIf="date?.hasError('matDatepickerMax')">Ngày tháng tạo không được lớn hơn Tháng Lương*</span>
+
+  </mat-error>
+</mat-form-field>

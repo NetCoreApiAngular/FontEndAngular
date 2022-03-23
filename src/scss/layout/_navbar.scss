@@ -1,0 +1,143 @@
+.layout-container {
+
+  app-navbar {
+    height: 100%;
+    display: flex;
+    // width: 273px;
+  }
+
+  .app-navbar-vertical {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: all ease 0.2s;
+
+      .navbar-vertical {
+        flex-grow: 1;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-shrink: 0;
+        flex-direction: column;
+
+          .navbar-header {
+            height: 56px;
+            padding: 0 16px 0 24px;
+            position: relative;
+            display: flex;
+            flex-shrink: 0;
+            justify-content: space-between;
+            align-items: center;
+         
+            
+            a {
+              text-decoration: none;
+            }
+      
+            .navbar-toggle {
+              border: none;
+              outline: none;
+              visibility: visible;
+              opacity: 1;
+              transition: all ease 0.3s;
+            }
+      
+            .logo {
+              height: 100%;
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              transition: all ease 0.3s;
+      
+              // .logo-image {
+              //   display: flex;
+              //   justify-content: center;
+              //   align-items: center;
+              //   flex-shrink: 0;
+              //   width: 40px;
+      
+              //   img {
+              //     width: 100%;
+              //   }
+              // }
+      
+              .logo-text {
+                // margin-left: 15px;
+                // text-transform: uppercase;
+                font-size: 18px;
+                letter-spacing: 1px;
+                font-weight: 600;
+                opacity: 1;
+                visibility: visible;
+                transition: all ease .3s;
+              }
+            }
+          }
+
+        
+        .navbar-content {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          overflow-y: auto;
+          overflow-x: hidden;
+          flex-grow: 1;
+
+          /* width */
+
+            &::-webkit-scrollbar {
+              width: 7px;
+            }
+
+            /* Track */
+            &::-webkit-scrollbar-track {
+              background: transparent;
+            }
+
+            /* Handle */
+            &::-webkit-scrollbar-thumb {
+              background: rgba($color: #000000, $alpha: 0.1);
+              border-radius: 6px;
+            }
+
+            /* Handle on hover */
+            &::-webkit-scrollbar-thumb:hover {
+              background: rgba($color: #000000, $alpha: 0.2);
+            }
+
+          .navbar-menu {
+            width: 100%;
+          }
+        }
+      }
+}
+ 
+  .folded:not(.unfolded) {
+
+    .app-navbar-vertical {
+      width: 64px;
+
+      .navbar-vertical {
+
+          .navbar-header {
+
+            .logo {
+
+              .logo-text {
+                opacity: 0;
+                visibility: hidden;
+              }
+            }
+
+            .navbar-toggle {
+              visibility: hidden;
+              opacity: 0;
+            }
+          }  
+      }   
+    }
+  }
+}
+

@@ -1,0 +1,16 @@
+<app-progress-bar></app-progress-bar>
+<div class="layout-container">
+    <app-header></app-header>
+    <div class="layout-content">
+        <!-- <app-sidebar name="navbar" class="navbar-sidebar" [folded]="themeConfig.layout.navbar.folded" lockedOpen="gt-md" *ngIf="!themeConfig.layout.navbar.hidden" [invisibleOverlay]="true">
+            <app-navbar class="left-navbar"></app-navbar>
+        </app-sidebar> -->
+        <div class="main-content w-100">
+            <div class="router-content" id="router-content">
+                <router-outlet (activate)="onActivate($event)"></router-outlet>
+            </div>
+            <app-footer></app-footer>
+            <app-loading [show]="clientState.isBusy" [subTextShow]="clientState.isSubBusy" [fullScreen]="true"></app-loading>
+        </div>
+    </div>
+</div>

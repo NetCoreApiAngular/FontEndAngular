@@ -1,0 +1,70 @@
+<div class="row mx-0">
+    <div class="col-12 mb-2">
+        <h1>{{isUpdateMode? 'Cập nhật phòng ban':'Tạo mới phòng ban'}}</h1>
+    </div>
+    <div class="col-12 mt-2 px-4">
+        <form [formGroup]="createForm" (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row mx-0 align-items-baseline">
+                <div class="col-lg-6 px-0 pr-lg-4 mb-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Mã phòng ban</mat-label>
+                        <input matInput specialCharacter formControlName="code" maxlength="49" required>
+                        <mat-error *ngIf="code.errors?.pattern">
+                            <span [innerHTML]="'Trường không được phép chứa ký tự đặc biệt'"></span>
+                        </mat-error>
+                        <mat-error *ngIf="code.invalid && (code.touched)">
+                            <span *ngIf="code?.hasError('required')">Đây là trường bắt buộc</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-6 px-0 pr-lg-4 mb-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Tên phòng ban *</mat-label>
+                        <input matInput formControlName="name" maxlength="249">
+                        <mat-error *ngIf="name.invalid && (name.touched)">
+                            <span *ngIf="name?.hasError('required')">Đây là trường bắt buộc</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 px-0 pr-lg-4 mb-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Mô tả</mat-label>
+                        <input matInput formControlName="description" maxlength="490">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-lg-6 px-0 pr-lg-4 mb-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>STT in</mat-label>
+                        <input matInput formControlName="num" maxlength="490">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6 px-0 pr-lg-4 mb-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Trạng thái *</mat-label>
+                        <mat-select formControlName="status">
+                            <mat-option *ngFor="let st of statusList" [value]="st.value">
+                                {{st.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="status.invalid && (status.touched)">
+                            <span *ngIf="status?.hasError('required')">Đây là trường bắt buộc</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6 px-0 mb-3">
+                    <mat-checkbox formControlName="isCalculateSalaryAssignment">Có lương khoán sản phẩm</mat-checkbox>
+                </div>
+
+                <div class="col-12 px-0 mb-3 pr-lg-4 text-right">
+                    <button mat-flat-button color="primary" class="custom-btn mr-2" type="submit"
+                        [disabled]="loading || !createForm.valid">{{isUpdateMode? 'Cập nhật':'Tạo mới'}}</button>
+                    <button mat-flat-button class="custom-btn btn-gray" (click)="this.goBack()"
+                        type="button">Hủy</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

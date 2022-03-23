@@ -1,0 +1,21 @@
+// 1. Configuration and helpers
+@import "abstracts/variables", "abstracts/functions", "abstracts/mixins",
+  "abstracts/colors", "abstracts/fonts", "abstracts/breakpoints";
+
+// 2. Vendors
+
+// 3. Base stuff
+@import "base/reset", "base/typography", "base/common", "base/responsives", "base/animations", "base/custom-material", "base/perfect-scrollbar";
+
+// 4. Layout-related sections
+@import "layout/layout-admin", "layout/header", "layout/footer",
+  "layout/navbar", "layout/navigation","layout/sidebar";
+
+// 5. Components
+@import "components/buttons","components/cards","components/tables", "components/badges", "components/dialog";
+
+// 6. Page-specific styles
+@import "pages/login", "pages/register", "pages/forgot-password";
+
+// 7. Themes
+@import "themes/themes";

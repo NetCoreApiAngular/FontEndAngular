@@ -1,0 +1,76 @@
+.mat-button {
+    min-width: 30px !important;
+    .mat-icon {
+        font-size: 20px !important;
+    }
+}
+
+.notification {
+    position: relative;
+    .notification-summary {
+        position: absolute;
+        font-size: 10px !important;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        width: 17px;
+        height: 16px;
+        line-height: 1.7;
+        right: -3px;
+        top: -3px;
+        text-align: center;
+    }
+}
+
+.notification-list {
+    max-height: 315px;
+    overflow-y: auto;
+    .notification-item {
+        line-height: 30px !important;
+        height: 30px !important;
+        padding: 0 10px !important;
+        .notification-item-detail {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 230px;
+        }
+    }
+}
+
+.md-spinner {
+    width: 30px !important;
+    height: 30px !important;
+    margin: 5 auto !important;
+}
+
+.noti-danger {
+    background-color: #ecc6c9;
+    i {
+        background-color: white;
+        border-radius: 50%;
+        color: red;
+        margin-right: 5px;
+    }
+    .noti-detail {
+        color: red;
+    }
+}
+.noti-success {
+    background-color:#b0e0b1;
+    i {
+        background-color: white;
+        border-radius: 50%;
+        color: green;
+        margin-right: 5px;
+    }
+    .noti-detail {
+        color: green;
+    }
+}
+
+
+
+::ng-deep .notification-menu {
+    min-width: 310px !important;
+}

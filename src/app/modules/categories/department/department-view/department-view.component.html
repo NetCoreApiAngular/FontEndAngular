@@ -1,0 +1,90 @@
+<div class="row mx-0">
+  <div class="col-12 mb-2">
+    <div class="row mx-0">
+      <div class="col-lg-7 p-0">
+        <h1>Chi tiết phòng ban</h1>
+      </div>
+      <div class="col-lg-5 p-0 text-right">
+        <button mat-icon-button class="mr-2 btn-custom btn-gray" (click)="goBack()"
+          type="button" *ngIf="this.roleService.actionIsAllow('Department', 'Listing')">
+          <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon">arrow_back</mat-icon>
+          <span>Quay lại</span>
+        </button>
+        <button mat-icon-button class="mr-2 btn-custom btn-detail" (click)="onUpdateDepartment()"
+          *ngIf="this.roleService.actionIsAllow('Department', 'Edit')">
+          <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon">create</mat-icon>
+          <span>Cập nhật</span>
+        </button>
+        <button mat-icon-button class="btn-custom btn-delete" (click)="removeDepartment()"
+          *ngIf="this.roleService.actionIsAllow('Department', 'Delete')">
+          <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon">delete_outline</mat-icon>
+          <span>Xóa</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 mt-2">
+    <div class="row mx-0  border rounded bg-white px-3 py-4">
+      <div class="col-12">
+        <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+          <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+            <label class="text-secondary d-block m-0">Mã phòng ban</label>
+          </div>
+          <div class="col-lg-8 p-0">
+            <p class="label-info m-0 text-primary font-weight-600">{{department.code}}</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-12">
+        <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+          <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+            <label class="text-secondary d-block m-0">Tên phòng ban</label>
+          </div>
+          <div class="col-lg-8 p-0">
+            <p class="label-info m-0 text-primary font-weight-600">{{department.name}}</p>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="col-12">
+        <div class="row mx-0 border-dashed-bottom border-color-light py-2 py-lg-2">
+          <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+            <label class="text-secondary d-block m-0">Trạng thái</label>
+          </div>
+          <div class="col-lg-1 p-0">
+            <div class="green-200 py-1 d-flex justify-content-center align-items-baseline rounded-full"
+              *ngIf="department?.status == 2">
+              <p class="bg-green w-2 h-2 rounded-circle mr-1 mb-0"></p>
+              <p class="text-uppercase font-weight-600 text-xs tracking-wide mb-0">Active</p>
+            </div>
+            <div class="red-200 py-1 d-flex justify-content-center align-items-baseline rounded-full"
+              *ngIf="department?.status == 1">
+              <p class="bg-red w-2 h-2 rounded-circle mr-1 mb-0"></p>
+              <p class="text-uppercase font-weight-600 text-xs tracking-wide mb-0">Inactive</p>
+            </div>
+            <div class="bg-gray py-1 d-flex justify-content-center align-items-baseline rounded-full"
+              *ngIf="department?.status == 0">
+              <p class="bg-secondary w-2 h-2 rounded-circle mr-1 mb-0"></p>
+              <p class="text-uppercase font-weight-600 text-xs tracking-wide text-muted mb-0">Offline</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 p-0">
+          <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+            <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+              <label class="text-secondary d-block m-0">Mô tả</label>
+            </div>
+            <div class="col-lg-8 p-0">
+              <p class="label-info m-0 text-primary font-weight-600 word-break-all">{{department.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

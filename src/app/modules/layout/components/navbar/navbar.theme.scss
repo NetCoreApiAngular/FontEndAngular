@@ -1,0 +1,36 @@
+@mixin nav-bar-theme($themes) {
+
+    @each $theme, $value in $themes {
+         $background: map-get($value, background );
+         $primary: map-get($value, primary );
+         $primary-text: map-get($value, primary-text);
+         $secondary-text: map-get($value, secondary-text );
+         $accent: map-get($value, accent);
+ 
+        .theme-#{$theme} {
+ 
+         .app-navbar-vertical {
+            //  background-color: $background;
+            background-color: #1775d2;
+             .navbar-header {
+                border-bottom: 1px solid #e6e6e6;
+ 
+                 .navbar-toggle {
+                     color: $primary-text;
+                 }
+ 
+                 .logo {
+ 
+                     .logo-text {
+                         color: #3f414b;
+                     }
+                 }
+             }
+ 
+         }
+        }
+         
+    }
+ 
+     
+ }

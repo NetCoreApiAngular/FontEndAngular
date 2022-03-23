@@ -1,0 +1,63 @@
+@import 'src/scss/abstracts/variables';
+
+.language-seletor {
+    height: 100%;
+    display: flex;
+
+    .language-toggle {
+        outline: none;
+        border-radius: 0;
+        width: 60px;
+        min-width: 1px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+            .toggler-img {
+                width: 27px;
+                height: 27px;
+                display: flex;
+                align-items: center;
+
+
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+
+
+    
+}
+   
+    .language-list {
+        margin: 0;
+
+        .language-item {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            
+
+            .lang-icon {
+                width: 24px;
+                margin-right: 16px;
+                display: flex;
+
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .lang-title {
+                font-size: 14px;
+                color: $primary-text;
+            }
+        }
+    }

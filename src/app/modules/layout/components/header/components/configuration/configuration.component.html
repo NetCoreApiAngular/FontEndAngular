@@ -1,0 +1,74 @@
+<div class="general-configuration d-flex px-2">
+    <ng-container *ngIf="viewRole.UserListing || viewRole.RoleListing">
+        <button mat-button class="p-0" [matMenuTriggerFor]="configurationMenu">
+            <mat-icon class="text-white">settings</mat-icon>
+        </button>
+        <mat-menu #configurationMenu="matMenu" [overlapTrigger]="false" xPosition="before">
+            <ul class="configuration-list m-0">
+                <li *ngIf="viewRole.UserListing" mat-menu-item routerLink="/Nhon-hoa/Quan-ly-tai-khoan/Danh-sach">Quản
+                    lý tài khoản</li>
+                <mat-divider></mat-divider>
+                <li *ngIf="viewRole.RoleListing" mat-menu-item routerLink="/Nhon-hoa/Quan-ly-phan-quyen/Danh-sach">Phân
+                    quyền</li>
+                <mat-divider></mat-divider>
+                <li *ngIf="viewRole.CompanyListing" mat-menu-item routerLink="/Nhon-hoa/Thong-tin-cong-ty/Chi-tiet">Thông
+                    tin công
+                    ty</li>
+                <mat-divider></mat-divider>
+                <li *ngIf="viewRole.CompanyListing" mat-menu-item routerLink="/Nhon-hoa/Thong-tin-tien-USD/Chi-tiet">Thông
+                    tin tiền
+                    USD</li>
+            </ul>
+        </mat-menu>
+    </ng-container>
+    <ng-container *ngIf="viewRole.WarningListing">
+        <button mat-button class="p-0 notification" [matMenuTriggerFor]="notificationMenu">
+            <mat-icon class="text-white">notifications_active</mat-icon>
+            <strong class="notification-summary" [hidden]="!totalRecords">{{totalRecords}}</strong>
+        </button>
+        <mat-menu class="notification-menu" #notificationMenu="matMenu" [overlapTrigger]="false" xPosition="before">
+            <ul #notification class="notification-list m-0" (scroll)="scrollDown($event)">
+                <li mat-menu-item class="notification-item text-center" (click)="onViewNotification()">
+                    <strong>Danh sách thông báo</strong>
+                </li>
+                <mat-divider></mat-divider>
+                <ng-container *ngFor="let item of notificationList">
+                    <li class="notification-item d-flex" [ngClass]="item.process? 'noti-success':'noti-danger'">
+                        <span *ngIf="item.process; else notProcess">
+                            <i class="fas fa-check-circle"></i>
+                        </span>
+                        <ng-template #notProcess>
+                            <span>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                        </ng-template>
+                        <div class="d-flex justify-content-between w-100" [ngSwitch]="item.decisionType">
+                            <span class="notification-item-detail"
+                                *ngSwitchCase="1">{{item.decisionDate | date: 'dd/MM/yyyy'}}
+                                Quyết định nhân sự
+                            </span>
+                            <span class="notification-item-detail" *ngSwitchCase="2">
+                                {{item.decisionDate | date: 'dd/MM/yyyy'}} Công nhân viên đến hạn thâm niên
+                            </span>
+                            <span class="notification-item-detail"
+                                *ngSwitchCase="3">{{item.decisionDate | date: 'dd/MM/yyyy'}}
+                                Quyết định nhân viên nghỉ
+                            </span>
+                            <span class="notification-item-detail"
+                                *ngSwitchCase="4">{{item.decisionDate | date: 'dd/MM/yyyy'}}
+                                Đáo hạn hợp đồng
+                            </span>
+                            <span class="notification-item-detail"
+                                *ngSwitchCase="5">{{item.decisionDate | date: 'dd/MM/yyyy'}}
+                                Đáo hạn nâng lương
+                            </span>
+                            <small class="c-pointer noti-detail" (click)="goToNotificatioin(item)">Chi tiết</small>
+                        </div>
+                    </li>
+                    <mat-divider></mat-divider>
+                </ng-container>
+                <mat-spinner class="mx-auto my-1" [diameter]="20" [hidden]="!loading"></mat-spinner>
+            </ul>
+        </mat-menu>
+    </ng-container>
+</div>

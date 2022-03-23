@@ -1,0 +1,79 @@
+<div class="register-page">
+    <div class="register-container">
+
+        <div class="register-title text-primary">
+            <span class="title">Register</span>
+            <div class="sub-title">
+                <span>Already have an account? <a class="fg-primary" routerLink="/login"> Login</a></span>
+            </div>
+        </div>
+
+        <div class="register-message error-message" *ngIf="error && !loading">
+            <span>{{errorMessage}}</span>
+        </div>
+        <div class="register-message success-message" *ngIf="success && !loading">
+            <span>{{successMessage}}</span>
+        </div>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister(f)" novalidate autocomplete="off" #f="ngForm">
+
+            <div class="form-group">
+                <label class="text-primary">Email</label>
+                <input type="text" class="form-control border-primary--focus" formControlName="email"
+                    [ngClass]="{'form-control-error': email.invalid &&(email.touched)}" autocomplete="new-email"
+                    name="new-email">
+                <div class="form-group-error" *ngIf="email.invalid && ( email.touched)">
+                    <p class="error-text" *ngIf="email?.hasError('required')">
+                        {{messages.email.required}}</p>
+                    <p class="error-text" *ngIf="email?.hasError('email')&&!email?.hasError('required')">
+                        {{messages.email.email}}</p>
+                </div>
+            </div>
+
+            <div class="password-group" formGroupName="passwordGroup">
+                <div class="form-group">
+                    <label class="text-primary">Password</label>
+                    <input type="password" class="form-control border-primary--focus" formControlName="password"
+                        [ngClass]="{'form-control-error': password.invalid &&(password?.touched)}"
+                        autocomplete="new-password" name="new-password">
+                    <div class=" form-group-error" *ngIf="password.invalid && (password?.touched)">
+                        <p class="error-text" *ngIf="password?.hasError('required')">
+                            {{messages.password.required}}</p>
+                        <p class="error-text"
+                            *ngIf="password?.hasError('pattern') && !password?.hasError('required') && !password?.hasError('whitespace')">
+                            {{messages.password.pattern}}</p>
+                        <p class="error-text"
+                            *ngIf="password?.hasError('whitespace') && !password?.hasError('required')">
+                            {{messages.password.whitespace}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="text-primary">Confirm password</label>
+                    <input type="password" class="form-control border-primary--focus" formControlName="confirmPassword"
+                        [ngClass]="{'form-control-error': (passwordGroup.invalid || confirmPassword.invalid) &&(confirmPassword.touched)}"
+                        autocomplete="new-confirm-password" name="new-confirm-password">
+                    <div class="form-group-error"
+                        *ngIf="(passwordGroup.invalid || confirmPassword.invalid)&&(confirmPassword.touched)">
+                        <p class="error-text" *ngIf="confirmPassword?.hasError('required')">
+                            {{messages.confirmPassword.required}}</p>
+                        <p class="error-text"
+                            *ngIf="passwordGroup?.hasError('passwordNotMatch') && !confirmPassword?.hasError('required')">
+                            {{messages.notMatch}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group mt-5">
+                <div class="register-btn">
+                    <button mat-flat-button type="submit" [disabled]="loading || !registerForm.valid"
+                        class="btn-primary auth-btn">
+                        <span *ngIf="!loading">Register</span>
+                        <mat-progress-spinner *ngIf="loading" mode="indeterminate" diameter="20">
+                        </mat-progress-spinner>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

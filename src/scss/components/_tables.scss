@@ -1,0 +1,118 @@
+.border {
+    border: none !important;
+}
+
+.custom-table {
+    tr {
+        height: auto !important;
+    }
+
+    th {
+        color     : #333 !important;
+        background: #FBFDFE;
+
+        font-weight: 600 !important;
+        white-space: nowrap !important;
+        padding    : 0.5rem !important;
+
+        &:last-child {
+            padding: 0.5rem 0.5rem 0.5rem 0.45rem !important;
+        }
+    }
+
+    th,
+    td {
+        border   : 1px dotted #ccc !important;
+        font-size: 13px !important;
+    }
+    // đừng có sửa cái padding này nha
+    td {
+        padding: 0rem 0.5rem !important;
+    }
+
+    td.mat-cell:last-of-type {
+        width: 45px !important;
+    }
+}
+
+.mat-paginator-container {
+    min-height: 56px;
+    border    : 1px dotted #ccc !important;
+    border-top: none !important;
+}
+
+.mat-column-action {
+    mat-icon {
+        display        : flex !important;
+        justify-content: flex-end !important;
+    }
+}
+
+.word-break-all {
+    word-break: break-all;
+}
+
+.min-5 {
+    min-width: 500px;
+}
+
+.table-custom-bordered {
+    table {
+        border: 1px solid #999 !important;
+
+        th,
+        td {
+            border: 1px solid #999 !important;
+        }
+
+        tr:hover {
+            background-color: #f2f2f2;
+        }
+    }
+}
+
+.table-highlight {
+    table {
+        tbody tr:nth-child(even) {
+            background-color: #f8f8f8 !important;
+
+            &:hover {
+                background-color: #f2f2f2 !important;
+            }
+        }
+    }
+}
+
+table {
+    tbody tr {
+      // &:nth-child(even) {
+      // background-color: #f8f8f8 !important;}
+
+      &:hover {
+          background-color: #f2f2f2 !important;
+      }
+    }
+    input {
+        padding         : 0 !important;
+        background-color: transparent;
+        border-bottom   : 0.5px solid #8c8e91 !important;
+    }
+
+    input:disabled {
+        border-bottom   : none !important;
+        background-color: transparent;
+    }
+
+    input:invalid {
+        border-bottom: 0.5px solid #e92e2e !important;
+    }
+
+    .input-row-icon {
+        position: relative;
+
+        mat-icon {
+            position: absolute;
+            right   : 0;
+        }
+    }
+}

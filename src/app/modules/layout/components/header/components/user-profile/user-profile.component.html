@@ -1,0 +1,34 @@
+<div class="user-profile">
+    <button mat-icon-button class="user-toggle bg-white" [matMenuTriggerFor]="userDropdown">
+        <div class="toggler-image">
+            <img src="assets/images/user-avatar.jpg" alt="user avatar">
+        </div>
+    </button>
+    <strong class="user-name">
+        {{currUser}}
+    </strong>
+    <mat-menu #userDropdown="matMenu" [overlapTrigger]="false">
+        <ng-template matMenuContent>
+            <div class="user-dropdown-list">
+                <!-- <a class="user-item" mat-menu-item>
+                    <mat-icon fontSet="material-icons-outlined">lock_outline</mat-icon>
+                    <div class="item-title">
+                        Khóa màn hình
+                    </div>
+                </a> -->
+                <a class="user-item" mat-menu-item>
+                    <mat-icon fontSet="material-icons-outlined">account_circle</mat-icon>
+                    <div class="item-title" routerLink="/Nhon-hoa/Quan-ly-tai-khoan/Chi-tiet">
+                        Tài khoản
+                    </div>
+                </a>
+                <a class="user-item" mat-menu-item (click)="logOut()">
+                    <mat-icon fontSet="material-icons-outlined">exit_to_app</mat-icon>
+                    <div class="item-title">
+                        Đăng xuất
+                    </div>
+                </a>
+            </div>
+        </ng-template>
+    </mat-menu>
+</div>

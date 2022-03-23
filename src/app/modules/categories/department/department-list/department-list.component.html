@@ -1,0 +1,209 @@
+<div>
+    <div class="col-12 d-flex justify-content-between align-items-center">
+        <div>
+            <h1>Danh sách Phòng ban</h1>
+        </div>
+        <div>
+            <button mat-flat-button class="btn-success" (click)="onCreateDepartment()"
+                *ngIf="this.roleService.actionIsAllow('Department', 'Create')">
+                <mat-icon>add</mat-icon>
+                <span class="ml-1">Thêm mới</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button mat-stroked-button class="text-secondary border-transparent my-2" (click)="toggleSearch()">
+            <mat-icon>filter_list</mat-icon>
+            <span class="mx-2">Bộ lọc</span>
+            <i class="fa" aria-hidden="true"
+                [ngClass]="{ 'fa-caret-up': showSearchField, 'fa-caret-down': !showSearchField }"></i>
+        </button>
+
+        <section [@slideInOut]="showSearchField" style="overflow: hidden;">
+            <div class="bg-white rounded border p-4">
+                <form [formGroup]="searchForm" (ngSubmit)="onFilter()">
+                    <div class="row mx-0 align-items-baseline">
+                        <div class="col-lg-4 px-0 pr-lg-4 mb-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Mã phòng ban</mat-label>
+                                <input matInput formControlName="code">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4 px-0 pr-lg-4 mb-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Tên phòng ban</mat-label>
+                                <input matInput formControlName="name">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4 px-0 mb-2">
+                            <mat-form-field class="w-100">
+                                <mat-label>Trạng thái</mat-label>
+                                <mat-select formControlName="status">
+                                    <mat-option *ngFor="let st of status" [value]="st.value">
+                                        {{st.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-12 px-0 mb-2 text-right">
+                            <button mat-flat-button class="custom-btn btn-gray mr-2" (click)="cleanFilter()"
+                                type="button">Xóa bộ lọc</button>
+                            <button mat-flat-button color="primary" class="custom-btn" type="submit">Tìm
+                                kiếm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="col-12 text-right">
+        <app-table-display-columns [tableName]="componentName" [baseColumns]="displayedColumns"
+            [showColumns]="showColumns" (onColumnsChange)="showColumns = $event"></app-table-display-columns>
+    </div>
+
+    <div class="col-12">
+        <div class="bg-white rounded border p-3">
+            <div class="overflow-auto custom-table">
+                <table mat-table [dataSource]="dataSource" matSort
+                    class="w-100" (matSortChange)="sortChange($event, this.filterDepartment); onSearch()">
+
+                    <ng-container matColumnDef="stt">
+                        <th mat-header-cell *matHeaderCellDef>STT</th>
+                        <td mat-cell *matCellDef="let element; let i = index">
+                            {{i + 1 + filterDepartment.pageSize * (filterDepartment.currentPage - 1)}}
+                        </td>
+                    </ng-container>
+
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 120px"> Mã phòng ban
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-left"> {{element.code}} </td>
+                    </ng-container>
+
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 120px"> Tên phòng ban
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-left"> {{element.name}} </td>
+                    </ng-container>
+
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="createdDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 120px"> Ngày tạo </th>
+                        <td mat-cell *matCellDef="let element" class="text-left">
+                            {{element.createdDate | date: 'dd/MM/yyyy'}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="num">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> 
+                            STT in
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-left"> {{element.num}} </td>
+                    </ng-container>
+
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="isCalculateSalaryAssignment">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:170px">Có lương khoán sản
+                            phẩm</th>
+                        <td mat-cell *matCellDef="let element" class="text-center" style="width:170px">
+                            <span class="d-flex align-items-center justify-content-center"
+                                *ngIf="element.isCalculateSalaryAssignment">
+                                <mat-icon>check</mat-icon>
+                            </span>
+                            <span class="d-flex align-items-center justify-content-center"
+                                *ngIf="!element.isCalculateSalaryAssignment"></span>
+                        </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header
+                            style="min-width: 120px; white-space: nowrap;"> Trạng thái </th>
+                        <td mat-cell *matCellDef="let element">
+                            <span class="green-200 px-2 d-inline-block rounded-full" *ngIf="element.status == 2">
+                                <span class="bg-green w-2 h-2 rounded-circle d-inline-block mr-1"></span>
+                                <span class="text-uppercase font-weight-600 text-xs tracking-wide pr-1">Hoạt động</span>
+                            </span>
+                            <span class="red-200 px-2 d-inline-block rounded-full" *ngIf="element.status == 1">
+                                <span class="bg-red w-2 h-2 rounded-circle d-inline-block mr-1"></span>
+                                <span class="text-uppercase font-weight-600 text-xs tracking-wide pr-1">Không hoạt động</span>
+                            </span>
+                            <span class="bg-gray px-2 d-inline-block rounded-full" *ngIf="element.status == 0">
+                                <span class="bg-secondary w-2 h-2 rounded-circle d-inline-block mr-1"></span>
+                                <span
+                                    class="text-uppercase font-weight-600 text-xs tracking-wide pr-1 text-muted">Nghỉ</span>
+                            </span>
+                        </td>
+                    </ng-container>
+
+                    <!-- Action -->
+                    <ng-container matColumnDef="action" stickyEnd>
+                        <th mat-header-cell *matHeaderCellDef class="text-center" style="width: 45px">
+                            <mat-icon>settings</mat-icon>
+                        </th>
+                        <td mat-cell *matCellDef="let element" class="text-center" (click)="$event.stopPropagation()">
+                            <button mat-icon-button [matMenuTriggerFor]="menu"
+                                aria-label="Example icon-button with a menu">
+                                <mat-icon>more_horiz</mat-icon>
+                            </button>
+                            <mat-menu #menu="matMenu" class="custom-matMenu">
+                                <!-- <a mat-menu-item (click)="onViewDepartment(element)"
+                                    *ngIf="this.roleService.actionIsAllow('Department', 'Listing')">
+                                    <mat-icon class="icon-in-menu">visibility</mat-icon>
+                                    <span>Xem chi tiết</span>
+                                </a> -->
+                                <a mat-menu-item (click)="onUpdateDepartment(element)"
+                                    *ngIf="this.roleService.actionIsAllow('Department', 'Edit')">
+                                    <mat-icon class="icon-in-menu">create</mat-icon>
+                                    <span>Cập nhật</span>
+                                </a>
+                                <a mat-menu-item (click)="onDeleteDepartment(element)"
+                                    *ngIf="this.roleService.actionIsAllow('Department', 'Delete')">
+                                    <mat-icon class="icon-in-menu">delete_outline</mat-icon>
+                                    <span>Xóa</span>
+                                </a>
+                            </mat-menu>
+                        </td>
+                    </ng-container>
+
+                    <!-- Loading -->
+                    <ng-container matColumnDef="loading">
+                        <td mat-footer-cell *matFooterCellDef colspan="6" class="text-center"
+                            style="background-color: #eee;">
+                            Đang tải...
+                        </td>
+                    </ng-container>
+
+                    <!-- No Data -->
+                    <ng-container matColumnDef="noData">
+                        <td mat-footer-cell *matFooterCellDef colspan="6" class="text-center"
+                            style="background-color: #eee;">
+                            Không tồn tại bản ghi.
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="showColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: showColumns;" class="cursor-pointer">
+                    </tr>
+                    <tr mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'d-none': dataSource != null}"></tr>
+                    <tr mat-footer-row *matFooterRowDef="['noData']"
+                        [ngClass]="{'d-none': !(dataSource != null && dataSource.data.length==0)}"></tr>
+                </table>
+            </div>
+
+            <mat-paginator showFirstLastButtons="true" [pageSizeOptions]="pageSizeList"
+                [pageSize]="filterDepartment.pageSize" [length]="pagingModel.totalRecords" (page)="pageChange($event)"
+                [pageIndex]="pagingModel.pageIndex - 1">
+            </mat-paginator>
+
+            <span class="custom-position-btn">
+                <button class="btn-custom-link btn-detail-cus" type="button" (click)="previewDepartmentList()">
+                    <span>In phòng ban</span>
+                </button>
+            </span>
+
+        </div>
+    </div>
+</div>

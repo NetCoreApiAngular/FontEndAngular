@@ -1,0 +1,85 @@
+<table mat-table [dataSource]="dataSource" matSort class="w-100 custom-table">
+
+ 
+    <ng-container *ngFor="let col of displayedColumns , index as i">
+        <ng-container matColumnDef = "{{col.id}}" 
+        *ngIf="i != displayedColumns.length - 1 ">
+
+
+        
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 120px"
+            [ngClass] = "test"> {{col.name}}
+            </th>
+            <td mat-cell *matCellDef="let element">
+                 
+                {{element[col.id]}} 
+
+            </td>
+            
+        </ng-container>
+
+        <!-- 
+        <ng-container matColumnDef = "{{col.id}}"
+        *ngIf="i != displayedColumns.length - 1 && customIndex.includes(i)"
+        >
+
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="min-width: 120px"> {{col.name}}
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element[col.id]}} </td>
+
+         
+            <ng-container   [ngTemplateOutlet] = "customTemplate">
+            </ng-container>
+        
+
+        </ng-container>
+    -->
+
+    </ng-container>
+
+    
+    <ng-container matColumnDef="action" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef class="text-center" style="width: 45px"> <mat-icon>settings</mat-icon></th>
+        <td mat-cell *matCellDef="let element" class="text-center" (click)="$event.stopPropagation()">
+            
+            <button mat-icon-button [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu">
+                <mat-icon>more_horiz</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" class="custom-matMenu">
+                <a mat-menu-item (click)="onView(element)">
+                    <mat-icon class="icon-in-menu">visibility</mat-icon>
+                    <span>Xem chi tiết</span>
+                </a>
+                <a mat-menu-item (click)="onUpdate(element)">
+                    <mat-icon class="icon-in-menu">create</mat-icon>
+                    <span>Cập nhật</span>
+                </a>
+                <a mat-menu-item (click)="onDelete(element)">
+                    <mat-icon class="icon-in-menu">delete_outline</mat-icon>
+                    <span>Xóa</span>
+                </a>
+            </mat-menu>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="loading">
+        <td mat-footer-cell *matFooterCellDef colspan="6" class="text-center"
+            style="background-color: #eee;">
+            Đang tải...
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="noData">
+        <td mat-footer-cell *matFooterCellDef colspan="6" class="text-center"
+            style="background-color: #eee;">
+            Không tồn tại bản ghi.
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="showColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: showColumns;" class="cursor-pointer" (click)="onView(row)"></tr>
+    <tr mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'d-none': dataSource != null}"></tr>
+    <tr mat-footer-row *matFooterRowDef="['noData']"
+        [ngClass]="{'d-none': !(dataSource != null && dataSource.data.length==0)}"></tr>
+</table>

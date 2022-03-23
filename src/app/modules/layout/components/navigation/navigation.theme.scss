@@ -1,0 +1,116 @@
+@mixin navigation-theme($themes) {
+
+    @each $theme, $value in $themes {
+        $background: map-get($value, background );
+        $primary: map-get($value, primary );
+        $primary-text: map-get($value, primary-text);
+        $secondary-text: map-get($value, secondary-text );
+        $accent: map-get($value, accent);
+ 
+        .theme-#{$theme} {
+ 
+         .app-navigation {
+
+            .hint-text {
+                color: $primary;
+            }
+
+            .hint-text-icon {
+                color: $secondary-text;
+            }
+          
+
+            .nav-link {
+                &:hover:not(.routerLink--active) {
+                    // color: $accent;
+                  //   .nav-link-icon, .nav-link-title {
+                  //     color: $accent;
+                  //  }
+                  // background-color: rgba(240, 240, 240, .2);
+                  transition: all .3s ease;
+                }
+                transition: all .3s ease;
+                .nav-link-icon, .nav-link-title, .toggle-submenu-icon {
+                   color: $primary-text
+                }
+            }
+
+            .nav-link-cus {
+              position: relative;
+              padding: 10px 8px !important;
+              &:hover:not(.routerLink--active) {
+                ::before {
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  height: 2px;
+                  width: 100%;
+                  background-color: white;
+                  content: '';
+                  animation: shake-custom 0.82s cubic-bezier(.36,.07,.19,.97) both;
+                }
+              }
+            }
+
+            .routerLink--active {
+              background-color: #e6e9ec;
+              color: $accent;
+              position: relative;
+              // &::before {
+              //   content: "\f111";
+              //   font-family: "Font Awesome 5 Free";
+              //   font-size: 8px;
+              //   position: absolute;
+              //   top: 50%;
+              //   transform: translateY(-50%);
+              //   left: 40px;
+              //   color: $accent;
+              // }
+              
+              .nav-link-icon,
+              .nav-link-title {
+                color: $accent;
+                
+              }
+                
+            }
+              .nav-collapsable.open {
+                background-color: rgba(240, 240, 240, .2);
+                > .nav-link {
+                  
+                  ::before {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 2px;
+                    width: 100%;
+                    background-color: white;
+                    content: '';
+                  }
+                  > .nav-link-icon, .nav-link-title, .toggle-submenu-icon {
+                        // color: #1a202e;
+                        color: white;
+                  }
+                }
+                &:hover::before {
+                  animation: shake-custom 0.82s cubic-bezier(.36,.07,.19,.97) both;
+                }
+              }
+         }
+
+         .folded:not(.unfolded) {
+            .nav-collapsable.open {
+                > .nav-link {
+
+                  > .nav-link-icon {
+                        color: $primary !important;
+                  }
+                 
+                }
+              }
+           
+         }
+        }       
+    }
+     
+ }

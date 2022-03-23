@@ -1,0 +1,79 @@
+<div class="bg-white rounded border p-3">
+    <div class="text-right">
+        <button printSectionId="print-section" class="btn-success-cus" #printBtn ngxPrint>
+            <mat-icon>print</mat-icon>
+            In
+        </button>
+    </div>
+</div>
+<!-- Print Session -->
+<div id="print-section">
+    <div class="print-page-portrait" style="font-family: 'Times New Roman', Times, serif;">
+        <div style="text-align: left;" *ngIf="companyInfoModel !== null">
+            <p style="margin: 0; text-transform: uppercase; font-weight: 600">{{ companyInfoModel.companyName }}</p>
+            <p style="margin: 0; font-size: 14px">{{ companyInfoModel.address }}</p>
+        </div>
+        <div style="display: flex;  flex-direction: column; justify-content: center; align-items: center;">
+            <h3 style="margin-bottom: 15px; text-transform: uppercase;">Danh sách phòng ban</h3>
+        </div>
+        <div>
+            <!-- name of trinh do -->
+            <div>
+                <div>
+                    <p style="font-style: italic;">Ngày in: {{currDate | date: 'dd/MM/yyyy'}}</p>
+                    <table
+                        style="width: 100%; border-collapse: collapse; ;font-size: 19px; text-align: center; border: 1px solid black">
+                        <thead>
+                            <tr>
+                                <th style="border: 1px solid black; height: 50px; padding: 2px;">STT</th>
+                                <th style="border: 1px solid black; height: 50px; padding: 2px;">Mã phòng ban</th>
+                                <th style="border: 1px solid black; height: 50px; padding: 2px;">Tên phòng ban</th>
+                                <th style="border: 1px solid black; height: 60px; padding: 2px;">Ngày tạo</th>
+                                <th style="border: 1px solid black; height: 60px; padding: 2px;">Có lương khoán sản phẩm
+                                </th>
+                                <th style="border: 1px solid black; height: 60px; padding: 2px;">
+                                    Diễn giải
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let department of departmentModel, let i = index">
+                                <td style="border: 1px solid black; font-size: 14px; padding: 2px;">{{ i + 1 }}</td>
+                                <td style="border: 1px solid black; font-size: 14px; padding: 2px;">
+                                    {{ department.code }}</td>
+                                <td style="border: 1px solid black; font-size: 14px; padding: 2px;">
+                                    {{ department.name }}</td>
+                                <td style="border: 1px solid black; font-size: 14px; padding: 2px;">
+                                    {{ department.createdDate | date: 'dd/MM/yyyy' }}</td>
+                                <td style="border: 1px solid black; font-size: 14px; padding: 2px;">
+                                    {{ department.isCalculateSalaryAssignment ? 'Có' : 'Không' }}</td>
+                                <td style="border: 1px solid black; font-size: 14px; padding: 2px;">
+                                    {{ department.description }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="display:flex; justify-content: space-between; align-items: center; margin: 40px 60px;">
+                    <div style="display: flex; flex-direction: column; text-align: center;">
+                        <strong style="flex: 1; margin-top: 10px;">
+                            Người lập biểu
+                        </strong>
+                        <p>
+                            (Ký, họ tên)
+                        </p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; text-align: center;">
+                        <strong style="flex: 1;">
+                            Trưởng phòng
+                        </strong>
+                        <p>
+                            (Ký, họ tên)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

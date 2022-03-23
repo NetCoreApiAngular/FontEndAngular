@@ -1,0 +1,39 @@
+<div class="forgot-password-page">
+    <div class="forgot-password-container">
+        <div class="forgot-password-title text-primary">
+            <span class="title">Quên mật khẩu?</span>
+        </div>
+
+        <div class="forgot-password-message error-message" *ngIf="error && !loading">
+            <span>{{errorMessage}}</span>
+        </div>
+        <div class="forgot-password-message success-message" *ngIf="success && !loading">
+            <span>{{successMessage}}</span>
+        </div>
+
+        <form [formGroup]="forgotPasswordForm" (ngSubmit)="onForgotPassword(f)" novalidate autocomplete="off" #f="ngForm">
+
+            <div class="form-group">
+                <label class="text-primary">Địa chỉ email của bạn</label>
+                <input type="text" class="form-control border-primary--focus" formControlName="email"
+                    [ngClass]="{'form-control-error': email.invalid &&(email.touched)}">
+                <div class="form-group-error" *ngIf="email.invalid && ( email.touched)">
+                    <p class="error-text" *ngIf="email?.hasError('required')">
+                        {{messages.email.required}}</p>
+                    <p class="error-text" *ngIf="email?.hasError('email')&&!email?.hasError('required')">
+                        {{messages.email.email}}</p>
+                </div>
+            </div>
+            <div class="form-group mt-5">
+                <div class="forgot-password-btn">
+                    <button mat-flat-button type="submit" [disabled]="loading || !forgotPasswordForm.valid" class="btn-primary auth-btn">
+                        <span *ngIf="!loading">Submit</span>
+                        <mat-progress-spinner *ngIf="loading" mode="indeterminate" diameter="20">
+                        </mat-progress-spinner>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <span class="text-secondary return">Trở lại trang <a class="fg-primary" routerLink="/login">Đăng nhập</a></span>
+    </div>
+</div>

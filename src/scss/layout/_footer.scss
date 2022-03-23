@@ -1,0 +1,27 @@
+.layout-container {
+
+    .app-footer {
+        flex-shrink: 0;
+        border-top: 1px solid #e7e7e7;
+        border-bottom: 1px solid #e7e7e7;
+        height: 50px;
+        display: flex;
+        background-color: #fff;
+
+        .footer-inner {
+            width: 100%;
+            align-items: center;
+            display: flex;
+            padding: 0 25px;
+
+            p {
+                font-size: 13px;
+                letter-spacing: .5px;
+                font-weight: 400;
+                color: #27303F;
+                margin: 0;
+            }
+        }
+    }
+
+}

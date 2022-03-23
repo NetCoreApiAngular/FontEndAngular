@@ -1,0 +1,283 @@
+{
+    "Commons": {
+        "Button": {
+            "ResetPassword": "Khôi phục mật khẩu",
+            "SignIn": "Đăng nhập",
+            "GoBack": "Quay lại",
+            "GoToList": "Quay lại danh sách",
+            "Search": "Tìm kiếm",
+            "Filter": "Tìm kiếm",
+            "Import": "Nhập",
+            "Cancel": "Hủy",
+            "ClearFilter": "Xóa bộ lọc",
+            "Update": "Cập nhật",
+            "Remove": "Xóa",
+            "Create": "Tạo mới",
+            "Clear": "Clear",
+            "Print": "In",
+            "Add": "Thêm",
+            "Ok": "Đồng ý",
+            "Next": "Kế tiếp",
+            "ConfirmOrder": "Xác nhận đơn",
+            "Confirm": "Xác nhận",
+            "Upload": "Tải lên",
+            "Send": "Gửi",
+            "Close": "Đóng lại",
+            "OnEdit": "Chỉnh sửa",
+            "OnApprove": "Phê duyệt",
+            "GoToDetail": "Xem chi tiết"
+        },
+        "Errors": {
+            "ErrRequired": "Đây là trường bắt buộc.",
+            "ErrRequiredAndChoose": "Đây là trường bắt buộc và phải chọn từ danh sách",
+            "ErrDateFormat": "Ngày tháng không đúng định dạng",
+            "SpecialCharacters": "Trường không được phép chứa ký tự đặc biệt",
+            "SpecialUnicodeVN": "Trường không được phép nhập kiểu Vietnamese",
+            "SpecialUnicode": "Trường không được phép nhập có dấu",
+            "DataExist": "Dữ liệu đã tồn tại"
+        },
+        "HttpError": {
+            "Default": "Đã có lỗi xảy ra, vui lòng thử lại."
+        }
+    },
+    "Components": {
+        "Authentication": {
+            "Login": {
+                "PageTitle": "Đăng Nhập",
+                "LoginBrand": "",
+                "LoginTitle": "Đăng nhập",
+                "Username": "Tên đăng nhập",
+                "Password": "Mật khẩu",
+                "ForgotPassword": "Quên mật khẩu?",
+                "RememberMe": "Ghi nhớ",
+                "LoginBtn": "Đăng nhập",
+                "LoginError": "Sai tên đăng nhập hoặc mật khẩu",
+                "NoAccount": "Chưa có tài khoản?",
+                "Register": "Đăng ký"
+            },
+            "Register": {},
+            "ForgotPassword": {
+                "PasswordRecovery": "Khôi phục mật khẩu"
+            }
+        },
+        "Layout": {
+            "Header": {},
+            "Footer": {
+                "Copyright": "Copyright © 2022. All rights reserved.",
+                "Version": "Version 1.0"
+            },
+            "Sidebar": {},
+            "Navigation": {}
+        },
+        "Nav": {
+            "SidebarNav": {
+                "Category": {
+                    "Title": "Danh mục",
+                    "Children": {
+                        "Department": "Phòng ban",
+                        "Position": "Bảng mã nghề",
+                        "TeamGroup": "Tổ nhóm",
+                        "WorkTime": "Thời gian làm việc",
+                        "Qualification": "Trình độ chuyên môn",
+                        "IssuerPlace": "Mã nơi cấp",
+                        "SalaryRate": "Nhóm bậc lương",
+                        "AssignmentProduct": "QĐ về đơn giá sản phẩm khoán",
+                        "Product": "Danh mục sản phẩm khoán",
+                        "SalaryRateGroup": "Nhóm bậc lương",
+                        "Salary": "Lương chính",
+                        "Layout": "Giới thiệu hệ thống",
+                        "Font": "Font",
+                        "Colors": "Colors",
+                        "Table": "Table",
+                        "Form": "Form",
+                        "Card": "Card",
+                        "AdvanceTimeRate": "Hệ số làm thêm",
+                        "SubtractionCep": "Danh mục khấu trừ SHP",
+                        "LaborProtection": "Bảo hộ lao động",
+                        "ProtectionSize": "Danh mục cỡ áo",
+                        "ProtectionType": "Danh mục các loại BHLĐ",
+                        "ProtectionUtility": "Cấp áo BHLĐ",
+                        "ExpiredContractReport": "Báo cáo đáo hạn hợp đồng",
+                        "TrainingProcessReport":"Báo cáo quá trình đào tạo",
+                        "TimeOffReason":"Lý do nghỉ",
+                        "EmployeeProtectionUtility":"Danh sách nhân viên được cấp BHLĐ",
+                        "MilkManagetment": "Quản lý sữa",
+                        "Milk": "Danh mục sữa",
+                        "CategoriesMilkWarehouse": "Danh mục kho",
+                        "Customer": "Danh sách khách hàng",
+                        "Delivery": "Danh mục giao nhận",
+                        "Documentary": "Văn thư nhóm chính",
+                        "DeliveryMilk": "Danh mục giao nhận sữa",
+                        "WareHouseMilk": "Sổ chi tiết vật tư",
+                        "FirstInventory": "Số dư đầu kỳ",
+                        "Documents": "Công văn",
+                        "MainDocumentary": "Công văn nội bộ",
+                        "DepartDocumentary": "Công văn đi",
+                        "ArriveDocumentary": "Công văn đến",
+                        "Stationery": "Quản lý văn phòng phẩm",
+                        "WarehouseStationery": "Kho văn phòng phẩm",
+                        "MaterialImportBill": "Nhập hàng văn phòng phẩm",
+                        "MaterialExportBill": "Xuất hàng văn phòng phẩm",
+                        "FirstInventoryMaterial": "Số dư đầu kỳ",
+                        "MilkInventoryReport": "Báo cáo sữa tồn kho",
+                        "InventoryReport": "Báo cáo tồn kho",
+                        "MaterialExportReport": "Bảng kê xuất VPP",
+                        "MaterialDetailBookOfStationery": "Sổ chi tiết vật tư"
+                    }
+                },
+                "Employee": {
+                    "Title": "Nhân viên",
+                    "Children": {
+                        "EmployeeReportContract": "Báo cáo nhân viên ký hợp đồng lao động",
+                        "EmployeeAcademyReport": "Danh sách nhân viên theo trình độ",
+                        "TemporaryEmployee": "Nhân viên thuê ngoài - Thử việc",
+                        "ParttimeEmployee": "Nhân viên tập việc",
+                        "Appointment": "Quyết định nhân sự",
+                        "Employee": "Nhân viên chính thức",
+                        "InactivityAllowance": "Trợ cấp thôi việc",
+                        "TimeOffMaster":"Quyết định nhân viên nghỉ",
+                        "HouseHold":"Hộ khẩu thành phố - Tỉnh"
+                    }
+                },
+                "Salary": {
+                    "Title": "Lương",
+                    "Children": {
+                        "SalaryAssignment": "Bảng lương khoán sản phẩm",
+                        "SalaryPartime": "Lương tập việc",
+                        "SalaryParttime": "Lương học việc - thuê ngoài",
+                        "SalaryTimeUp": "Thời gian nâng bậc",
+                        "SalaryAdvance": "Lương tạm ứng",
+                        "FosterToxic" : "Bảng tiền phụ cấp độc hại",
+                        "InactivityAllowance" : "Bảng tiền trợ cấp thôi việc",
+                        "EmployeeSubtractionCEP": "Danh sách khấu trừ CEP",
+                        "SalaryParttimePrintLabel": "In nhãn lương tập việc",
+                        "SalaryLabelPrinting": "In nhãn lương & thưởng"
+                    }
+                },
+                "TimeLeave": {
+                    "Title": "Nghỉ phép",
+                    "Children": {
+                        "TimeLeaveToxic": "Bảng phép độc hại theo tổ",
+                        "TimeLeaveToxicEmployee": "Bảng phép độc hại bổ sung",
+                        "TimeLeaveSeniority": "Bảng phép thâm niên",
+                        "TimeLeaveYear": "Bảng phép năm",
+                        "TimeLeaveManagement": "Quản lý nghỉ phép",
+                        "Holiday": "Thiết lập ngày nghỉ lễ",
+                        "MagicType": "Thiết lập loại phép",
+                        "TimeLeaveStatistic": "Tổng kết ds nghỉ ốm"
+                    }
+                },
+                "QuantityCalculate": {
+                    "Title": "Tính công",
+                    "Children": {
+                        "TimeSheet": "Bảng chấm công tổng hợp",
+                        "TimeSheetDaily": "Bảng chấm công ngày",
+                        "TimeSheetSummary": "Bảng chấm công tháng",
+                        "SalaryRule": "Thiết lập tu chính quy chế tiền công"
+                    }
+                },
+                "RecruitTraining": {
+                    "Title": "Tuyển dụng - Đào tạo",
+                    "Children": {
+                        "Recruit": "Tuyển dụng",
+                        "RecruitmentRequirement": "Yêu cầu tuyển dụng",
+                        "Training": "Đào tạo",
+                        "TrainingCategory": "Danh mục đào tạo",
+                        "ISOAppendix": "Phụ lục ISO",
+                        "TrainingProcess": "Quá trình đào tạo",
+                        "RecruitmentDetail": "Tổng hợp tuyển dụng",
+                        "Retired": "Tổng hợp lao động chủ chốt nghỉ việc"
+                    }
+                },
+                "Tax": {
+                    "Title": "Thuế",
+                    "Children": {
+                        "IncomeTax": "Thuế công nhân viên",
+                        "PersonalTax": "Thuế thu nhập cá nhân trong 1 tháng",
+                        "PersonalIncomeTax": "Các mức đóng thuế thu nhập",
+                        "SubtractionPersonalTax": "Khấu trừ quyết toán thuế",
+                        "ReportPersonalTax": "Báo cáo thuế thu nhập"
+                    }
+                },
+                "RewardCalculate": {
+                    "Title": "Tính thưởng",
+                    "Children": {
+                        "Reward": "Danh sách các loại thưởng",
+                        "Reward13": "Tỷ lệ thưởng tháng 13",
+                        "RewardByDateSigned": "Bảng kê mức thưởng theo ngày",
+                        "RewardABC": "Bảng kê mức thưởng ABC",
+                        "RewardMaster": "Bảng tiền thưởng tổng hợp",
+                        "RewardAlone": "Bảng tiền thưởng",
+                        "RewardTimeLeave":"Bảng tiền phép năm",
+                        "RewardMonth13": "Bảng tiền thưởng lương tháng 13"
+                    }
+                },
+                "SeniorityCategory": {
+                    "Title": "Thâm niên",
+                    "Children": {
+                        "Seniority": "Tiền thâm niên",
+                        "SeniorityContract": "Danh sách CNV đến hạn thâm niên"
+                    }
+                },
+                "ResponsibilityToxicCategory": {
+                    "Title": "Trách nhiệm - Độc hại",
+                    "Children": {
+                        "toxicliability": "Danh mục phụ cấp trách nhiệm",
+                        "Responsibility": "Các loại phụ cấp độc hại",
+                        "LivingFee": "Phí sinh hoạt",
+                        "AllowanceToxic": "Danh mục các khoản phụ cấp độc hại",
+                        "ResponsibilityGroup": "Nhóm trách nhiệm"
+
+                    }
+                },
+                "Insurance": {
+                    "Title": "Bảo hiểm xã hội",
+                    "Children": {
+                        "InsuranceMoney": "Chi phí BHXH tháng",
+                        "socialInsurance": "Bảo hiểm xã hội",
+                        "ProvideSocialInsurance": "Danh sách đề nghị cấp sổ BHXH",
+                        "EmployeeJoinInsurance": "Nhân viên tham gia bảo hiểm",
+                        "PostalRecord": "Hồ sơ lưu bưu điện",
+                        "InsuranceRate": "Tỷ lệ trích bảo hiểm"
+                    }
+                },
+                "EmployeeReports": {
+                    "Title": "Báo cáo",
+                    "Children": {
+                        "ExpiredSalaryIncreaseReportList": "Báo cáo đáo hạn nâng bậc",
+                        "PrintTemplate": "Mẫu báo cáo",
+                        "LaborReport": "Báo cáo LD",
+                        "SeveranceAllowance": "Trợ cấp thôi việc",
+                        "Household": "Hộ khẩu thành phố-Tỉnh",
+                        "PrintLaborContract": "In hợp đồng lao động",
+                        "ReportOnEmployers": "Báo cáo sử dụng lao động",
+                        "EmployeeSituationReport": "Báo cáo tình hình sử dụng lao động",
+                        "LaborReports": "Báo cáo lao động",
+                        "ReportOnEmployersRetirement": "Báo cáo lao động đến tuổi hưu",
+                        "PrintTimesheetList": "In DS bảng chấm công",
+                        "EmployeeBackground": "Lý lịch CNV",
+                        "EmployeeResumeWasOff": "Lý lịch CNV đã nghỉ",
+                        "ListEmployeeOff": "Danh sách lao động nghỉ việc",
+                        "SeasonalBackground": "Lý lịch tập việc",
+                        "TeamBoardList": "DS ban-đội",
+                        "ManagementList": "DS quản lý",
+                        "DecidedToResign": "Căn cứ quyết định thôi việc",
+                        "Sign": "Danh mục ký tên",
+                        "ChildrenGift": "DS quà thiếu nhi",
+                        "FindNegativeInventory": "Tìm số tồn âm",
+                        "ISOReport": "Báo cáo ra vào"
+                    }
+                },
+                "LaborManagement": {
+                    "Title": "Quản lý lao động",
+                    "Children": {
+                        "ImportBill": "Theo dõi nhập sữa",
+                        "FollowDailyLaborSituation": "Theo dõi tình hình lao động",
+                        "ExportBill": "Theo dõi xuất sữa",
+                        "Material": "Danh mục vật tư"
+                    }
+                }
+            }
+        }
+    }
+}

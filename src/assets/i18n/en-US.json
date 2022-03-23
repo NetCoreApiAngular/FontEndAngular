@@ -1,0 +1,91 @@
+{
+  "Commons": {
+    "Button": {
+      "ResetPassword": "Reset Password",
+      "SignIn": "Sign In",
+      "GoBack": "Back",
+      "GoToList": "Quay lại danh sách",
+      "Search": "Tìm kiếm",
+      "Filter": "Tìm kiếm",
+      "Import": "Nhập",
+      "Cancel": "Hủy",
+      "ClearFilter": "Xóa bộ lọc",
+      "Update": "Cập nhật",
+      "Remove": "Xóa",
+      "Create": "Tạo mới",
+      "Clear": "Clear",
+      "Print": "In",
+      "Add": "Thêm",
+      "Ok": "Đồng ý",
+      "Next": "Kế tiếp",
+      "ConfirmOrder": "Xác nhận đơn",
+      "Confirm": "Xác nhận",
+      "Upload": "Tải lên",
+      "Send": "Gửi",
+      "Close": "Đóng lại",
+      "OnEdit": "Chỉnh sửa",
+      "OnApprove": "Phê duyệt",
+      "GoToDetail": "Xem chi tiết"
+    },
+    "Errors": {
+      "ErrRequired": "This field is required."
+    },
+    "HttpError": {
+      "Default": "There's something wrong. Please try again later."
+    }
+  },
+  "Components": {
+    "Authentication": {
+      "Login": {
+        "PageTitle":"Nhon Hoa - Login",
+        "LoginBrand": "Nhon Hoa",
+        "LoginTitle": "Login",
+        "Username": "Username",
+        "Password": "Password",
+        "ForgotPassword": "Forgot Password?",
+        "RememberMe": "Remember Me",
+        "LoginBtn": "Sign In",
+        "LoginError": "Username or Password is incorrect",
+        "NoAccount": "Don't have an account?",
+        "Register":"Register"
+      },
+      "Register": {
+
+      },
+      "ForgotPassword": {
+        "PasswordRecovery": "Recovery Password"
+      }
+    },
+    "Layout": {
+      "Header": {
+
+      },
+      "Footer": {
+        "Copyright": "Copyright © 2020 Nhon Hoa. All rights reserved.",
+        "Version": "Version 1.0"
+      },
+      "Sidebar": {
+
+      },
+      "Navigation": {
+
+      }
+    },
+    "Nav": {
+      "SidebarNav": {
+        "Category": {
+          "Title":"Category",
+          "Children": {
+            "Department":"Department",
+            "TeamGroup": "Team",
+            "WorkTime": "Work time",
+            "Qualification": "Qualification",
+            "IssuerPlace": "Issuer place",
+            "SalaryRate": "Salary rate"
+          }
+        }
+      }
+    }
+  }
+  
+}

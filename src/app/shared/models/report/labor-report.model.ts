@@ -1,0 +1,31 @@
+export interface LaborReport {
+    employeeHasNotTechnicalQualification: number,
+    numberOfFemaleEmployeeHasNotTechnicalQualification: number,
+    technicalHasNotPracticingCertificate: number,
+    numberOfFemaleTechnicalHasNotPracticingCertificate: number,
+    employeeHasCertificateUndo3Month: number,
+    numberOfFemaleEmployeeHasCertificateUndo3Month: number,
+    elementaryLevel: number,
+    numberOfFemaleElementaryLevel: number,
+    intermediateLevel: number,
+    numberOfFemaleIntermediateLevel: number,
+    collegeDegree: number,
+    numberOfFemaleCollegeDegree: number,
+    universityDegree: number,
+    numberOfFemaleUniversityDegree: number,
+    sumTechnicalQualificationEmployee: number,
+    sumFemaleTechnicalQualificationEmployee: number,
+    managementLabor: number,
+    numberOfFemaleManagementLabor: number,
+    professionalLabor: number,
+    numberOfFemaleProfessionalLabor: number,
+    administrativeStaff: number,
+    numberOfFemaleAdministrativeStaff: number,
+    directProductionLabor: number,
+    numberOfFemaleDirectProductionLabor: number,
+}
+
+export interface OvertimeReport {
+    numberOfOvertimeHour: number,
+    averageNumberOfPeoplePerMonth: number,
+}

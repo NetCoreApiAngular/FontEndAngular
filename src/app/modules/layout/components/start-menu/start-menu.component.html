@@ -1,0 +1,46 @@
+<div class="layout-container h-100">
+  <app-header></app-header>
+
+  <div class="wrapper w-100 h-auto p-3">
+    <div class="wrapper--inner h-100">
+      <!-- <div class="w-100">{{parentNavigatiton.title}}</div> -->
+      <div>
+        <button [disabled]="navigation == baseNavigation" mat-icon-button matTooltip="Quay lại" class="mr-2 btn-back"
+          (click)="backNavigation()" type="button">
+          <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon fg-warning">arrow_back</mat-icon>
+        </button>
+      </div>
+
+      <div class="grids">
+        <div class="grid__item grid__item--big">
+          <app-big-item *ngIf="navigation" [item]="navigation[0]"></app-big-item>
+        </div>
+        <div *ngFor="let item of navigation" class="h-100">
+          <div class="h-100">
+            <button type="button" (click)="onShowItem(item)" class="w-100 h-100">
+              <div class="grid__item" *ngIf="item.routerLink; else parentnode" [routerLink]="item.routerLink">
+                <i class="material-icons mb-2">{{item.icon ? item.icon : 'format_align_justify'}}</i>
+                <span class="label bottom">{{ item.title }}</span>
+              </div>
+              <!-- <i class="fa fa-envelope fa-2x"></i> -->
+              <ng-template #parentnode>
+                <div class="grid__item">
+                  <i class="material-icons mb-2">{{item.icon ? item.icon : 'format_align_justify'}}</i>
+                  <span class="label bottom">{{ item.title }}</span>
+                </div>
+              </ng-template>
+            </button>
+          </div>
+
+          <!-- <div >
+                    <app-group *ngIf="item.type === 'group'" [itemList]="item.children"></app-group>
+                    <app-collapsable *ngIf="item.type === 'collapsable'" [itemList]="item.children"></app-collapsable>
+                </div> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <app-footer></app-footer>
+
+</div>

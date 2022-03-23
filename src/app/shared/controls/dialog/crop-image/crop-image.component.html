@@ -1,0 +1,23 @@
+<div [ngClass]="visible? 'show':'hide'" class="dialog-container">
+    <div class="dialog-wrapper">
+        <!-- <div class="dialog-header">
+            <h4 class="title">{{header}}</h4>
+            <button class="btn btn-close" (click)="onClose()"></button>
+        </div> -->
+        <div class="dialog-body">
+            <input #imageCroperInput type="file" class="d-none" (change)="fileChangeEvent($event)" />
+            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+                (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+            <img *ngIf="preview" [src]="imageModel.data" />
+            <div class="text-center">
+                <button class="btn" (click)="selectImage()">Chọn ảnh</button>
+            </div>
+        </div>
+        <div class="dialog-footer text-right">
+            <button type="button" class="btn btn-default btn-success mr-2" (click)="onConfirm()">OK</button>
+            <button type="button" class="btn btn-default btn-danger" (click)="onClose()">Cancel</button>
+        </div>
+    </div>
+    <div class="overlay is-open"></div>
+</div>

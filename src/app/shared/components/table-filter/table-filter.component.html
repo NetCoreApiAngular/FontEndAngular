@@ -1,0 +1,16 @@
+<button mat-stroked-button class="text-secondary border-0" (click)="toggleSearch()">
+    <mat-icon>filter_list</mat-icon>
+    <span class="mx-2">{{labelSearch}}</span>
+    <i
+      class="fa"
+      aria-hidden="true"
+      [ngClass]="{ 'fa-caret-up': showSearchField, 'fa-caret-down': !showSearchField }"
+    ></i>
+</button>
+<section [@slideInOut]="showSearchField" style="overflow: hidden;">
+
+    <ng-content>
+
+    </ng-content>
+
+</section>

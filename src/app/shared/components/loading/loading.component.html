@@ -1,0 +1,15 @@
+<ng-container *ngIf="show">
+  <div class="overlay" [ngClass]="{
+      'p-abs': !fullScreen,
+      'p-fixed': fullScreen
+    }" style="background-color: rgba(255, 255, 255, 0.5); z-index: 1001;">
+
+    <div [ngClass]="size" class="c-spinner flex-col flex-center">
+      <div class="c-spinner-logo">
+        <i class="fas fa-circle-notch fa-spin fa-fw fa-2x"></i>
+
+      </div>
+      <strong *ngIf="subTextShow">Đang thực hiện yêu cầu, vui lòng không tắt trình duyệt</strong>
+    </div>
+  </div>
+</ng-container>

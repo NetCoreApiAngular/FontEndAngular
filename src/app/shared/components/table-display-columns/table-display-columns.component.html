@@ -1,0 +1,19 @@
+<div>
+    <button mat-stroked-button class="text-secondary border-transparent my-2" [matMenuTriggerFor]="menu">
+        <span>Hiển thị cột</span>
+        <mat-icon>view_column</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" class="custom-matMenu">
+        <div *ngFor="let col of baseColumns; let i = index">
+            <a mat-menu-item class="d-flex justify-content-between no-hover" (click)="$event.stopPropagation(); onChangeColumn(col.id, i)">
+                <span class="mr-2">{{ col.name }}</span>
+                <span *ngIf="showColumns.indexOf(col.id) > -1">
+                    <mat-icon class="text-success m-0">done_outline</mat-icon>
+                </span>
+                <span *ngIf="showColumns.indexOf(col.id) == -1">
+                    <mat-icon class="text-danger m-0">highlight_off</mat-icon>
+                </span>
+            </a>
+        </div>
+    </mat-menu>
+</div>

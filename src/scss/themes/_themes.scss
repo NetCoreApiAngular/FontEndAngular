@@ -1,0 +1,81 @@
+@import "src/app/modules/layout/components/navbar/navbar.theme";
+@import "src/app/modules/layout/components/navigation/navigation.theme";
+@import "src/app/modules/layout/components/sidebar/sidebar.theme";
+@import "src/app/modules/layout/components/header/header.theme";
+
+$themes: (
+  'indigo-pink': (
+    'primary': #3f51b5, 
+    'primary-text':#27303f,
+    'secondary-text':#64748b,
+    'accent': #ff4081,
+    'background': #fff
+  ),
+  'purple-amber': (
+    'primary':#673ab7,
+    'primary-text':#27303f,
+    'secondary-text':#64748b,
+    'accent': #ffd740,
+    'background': #fff
+  )
+);
+
+@mixin layout-theme($themes) {
+  @include nav-bar-theme($themes);
+  @include navigation-theme($themes);
+  @include side-bar-theme($themes);
+  @include header-theme($themes);
+}
+
+@include common-theme($themes);
+@include layout-theme($themes);
+
+// Material theming tools
+@import '~@angular/material/theming';
+// Include core Angular Material styles
+@include mat-core();
+
+// -----------------------------------------------------------------------------------------------------
+// @ Typography
+// -----------------------------------------------------------------------------------------------------
+
+// Angular Material typography
+$typography: mat-typography-config(
+    $font-family: 'Inter, Roboto, Helvetica Neue, Arial, sans-serif',
+    $title: mat-typography-level(20px, 32px, 600),
+    $body-2: mat-typography-level(14px, 24px, 600),
+    $button: mat-typography-level(14px, 14px, 600),
+    $input: mat-typography-level(16px, 1.6, 500) // line-height must be unitless !!!
+);
+
+// Setup the typography
+@include angular-material-typography($typography);
+
+// -----------------------------------------------------------------------------------------------------
+// @ Define the default theme
+// -----------------------------------------------------------------------------------------------------
+
+// Define the primary, accent and warn palettes
+$candy-primary-palette: mat-palette($mat-indigo);
+$candy-accent-palette: mat-palette($mat-pink, A200, A100, A400);
+$candy-warn-palette: mat-palette($mat-red);
+
+// Create the Material theme object
+$candy-theme: mat-light-theme($candy-primary-palette, $candy-accent-palette, $candy-warn-palette);
+
+// Create an Angular Material theme from the $theme map
+.theme-indigo-pink {
+    @include angular-material-theme($candy-theme);
+}
+
+// Define the primary, accent and warn palettes
+$deep-primary-palette: mat-palette($mat-deep-purple);
+$deep-accent-palette: mat-palette($mat-amber, A200, A100, A400);
+$deep-warn-palette: mat-palette($mat-red);
+
+// Create the Material theme object
+$deep-purple-theme: mat-light-theme($deep-primary-palette, $deep-accent-palette, $deep-warn-palette);
+
+.theme-purple-amber {
+    @include angular-material-theme($deep-purple-theme);
+}

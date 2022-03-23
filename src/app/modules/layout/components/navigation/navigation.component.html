@@ -1,0 +1,5 @@
+<div class="navigation h-100">
+    <ng-container *ngFor="let item of navigation">
+        <nav-group class="h-100" *ngIf="item.type==='group'" [item]="item"></nav-group>
+    </ng-container>
+</div>

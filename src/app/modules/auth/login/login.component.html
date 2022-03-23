@@ -1,0 +1,57 @@
+<div class="login-page">
+    <!-- <h1 class="brand-logo" [innerHTML]="'Components.Authentication.Login.LoginBrand' | translate"></h1> -->
+    <div class="login-container">
+        <h3 class="login-title">
+            <!-- <i class="fas fa-user"></i> -->
+            <span [innerHTML]="'Components.Authentication.Login.LoginTitle' | translate"
+                class="title text-primary"></span>
+            <!-- <div class="sub-title">
+                <span class="text-primary" [innerHTML]="'Components.Authentication.Login.NoAccount' | translate"></span>
+                <a class="fg-primary d-inline-block ml-1" routerLink="/register"
+                    [innerHTML]="'Components.Authentication.Login.Register' | translate"></a>
+            </div> -->
+        </h3>
+        <div class="login-error-message" *ngIf="isLoginError && !isLoading">
+            <span [innerHTML]="'Components.Authentication.Login.LoginError' | translate"></span>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" #f="ngForm" novalidate autocomplete="off">
+            <div class="form-group">
+                <label [innerHTML]="'Components.Authentication.Login.Username' | translate"
+                    class="text-primary"></label>
+                <input type="text" class="form-control border-primary--focus" formControlName="username"
+                    [ngClass]="{'form-control-error': loginForm.get('username').invalid &&(loginForm.get('username')?.touched)}">
+                <div class="form-group-error"
+                    *ngIf="(loginForm.get('username')?.dirty || loginForm.get('username')?.touched) || f.submitted">
+                    <p class="error-text" *ngIf="loginForm.get('username')?.hasError('required')"
+                        [innerHTML]="'Commons.Errors.ErrRequired' | translate"></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label [innerHTML]="'Components.Authentication.Login.Password' | translate"
+                    class="text-primary"></label>
+                <input type="password" class="form-control border-primary--focus" formControlName="password"
+                    [ngClass]="{'form-control-error': loginForm.get('password').invalid &&(loginForm.get('password')?.touched)}">
+                <div class="form-group-error"
+                    *ngIf="(loginForm.get('password')?.dirty || loginForm.get('password')?.touched || f.submitted)">
+                    <p class="error-text" *ngIf="loginForm.get('password')?.hasError('required')"
+                        [innerHTML]="'Commons.Errors.ErrRequired' | translate"></p>
+                </div>
+            </div>
+            <div class="form-group d-flex justify-content-between align-items-center">
+                <div class="forgot-password">
+                    <a [innerHTML]="'Components.Authentication.Login.ForgotPassword' | translate" class="fg-primary"
+                        routerLink="/forgot-password"></a>
+                </div>
+                <div>
+                    <button mat-flat-button class="btn-detail" type="submit" [disabled]="isLoading || !loginForm.valid">
+                        <span *ngIf="!isLoading"
+                            [innerHTML]="'Components.Authentication.Login.LoginBtn' | translate"></span>
+                        <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" diameter="20">
+                        </mat-progress-spinner>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- <p class="text-secondary text-center mb-0 mt-3" style="font-size: 13px;">Copyright © 2020 Nhơn Hòa.</p> -->
+</div>

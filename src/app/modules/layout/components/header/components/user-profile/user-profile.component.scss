@@ -1,0 +1,71 @@
+@import 'src/scss/abstracts/variables';
+.user-profile {
+    height: 100%;
+    display: flex;
+    // margin-left: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .user-name {
+        color: white;
+        line-height: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .user-toggle {
+        height: 100%;
+        cursor: pointer;
+        display: flex;
+        outline: none;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50% !important;
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        min-width: 1px;
+            
+            .toggler-image { 
+                width: 30px;
+                height: 30px;
+                
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+                
+        }
+    }
+
+     
+}
+.user-dropdown-list {
+    margin: 0;
+    padding: 10px 0;
+
+    .user-item {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        text-decoration: none;
+
+        mat-icon {
+            color: $secondary-text;
+        }
+
+        .item-title {
+            font-size: 14px;
+            color: $primary-text;
+        }
+    }
+}
+
+@media(max-width: 1250px) { 
+    .user-name {
+        max-width: 75px;
+    }
+}

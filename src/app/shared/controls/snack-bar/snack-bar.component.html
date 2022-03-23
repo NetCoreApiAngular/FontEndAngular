@@ -1,0 +1,18 @@
+<div class="mat-snack-bar-wrapper custom-wrapper-snackbar h-100">
+    <div class="mat-snack-bar-content custom-content-snackbar d-flex align-items-center h-100 {{ (data && messageType[data.type]) || 'Normal' }}"
+        [ngSwitch]="data.type">
+        <div class="box-icon-snack-bar h-100">
+            <mat-icon *ngSwitchCase="1">error</mat-icon>
+            <mat-icon *ngSwitchCase="2">warning</mat-icon>
+            <mat-icon *ngSwitchCase="3">done</mat-icon>
+        </div>
+        <div class="wrapper-content-snack-bar h-100">
+            <p>{{ (data && data.content) || "I'm Content" }}</p>
+        </div>
+    </div>
+    <div class="mat-snack-bar-action custom-snack-bar-action">
+        <button mat-icon-button (click)="onDismissSnackBar()">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+</div>

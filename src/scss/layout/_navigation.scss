@@ -1,0 +1,211 @@
+// Author: Nguyen Chinh Hiep
+// Email: nguyenchinhhiep95@gmail.com
+// Facebook: facebook.com/hiepnguyen1003
+
+
+.layout-container {
+
+    .app-navigation {
+      display: flex;
+      flex: 1 0 auto;
+  
+       .navigation {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: block;
+  
+        .nav-group {
+          display: block;
+          // margin-top: 14px;
+    
+          .group-title {
+            display: flex;
+            align-items: center;
+            padding: 9px 24px;
+            position: relative;
+      
+            .hint-text {
+              display: inline-block;
+              font-size: 12px;
+              font-weight: 600;
+              text-transform: uppercase;
+              opacity: 1;
+              letter-spacing: .5px;
+              visibility: visible;
+              transition: all ease .2s;
+            }
+      
+            .hint-text-icon {
+              position: absolute;
+              opacity: 0;
+              visibility: hidden;
+              top: 50%;
+              transform: translateY(-50%);
+              left: 24px;
+              transition: all ease .2s;
+      
+              i {
+                font-size: 14px;
+              }
+            }
+          }
+    
+        }
+    
+        .nav-link {
+          padding: 12px 15px 12px 15px;
+          // display: flex;
+          align-items: center;
+          flex-wrap: nowrap;
+          cursor: pointer;
+          position: relative;
+          transition: all ease 0.2s;
+    
+          .nav-link-icon {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            margin-right: 14px;
+            transition: all ease 0.2s;
+            z-index: 999;
+          }
+    
+          .nav-link-title {
+            // letter-spacing: 0.2px;
+            // flex-grow: 1;
+            margin-top: 3px;
+            font-size: 12px;
+            overflow: hidden;
+            // letter-spacing: .5px;
+            // white-space: nowrap;
+            // text-overflow: ellipsis;
+            font-weight: 500;
+            opacity: 1;
+            visibility: visible;
+            transition: all ease 0.2s;
+            color: white;
+          }
+    
+          .nav-link-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 5px;
+            min-width: 16px;
+            height: 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-right: 8px;
+            font-weight: 500;
+            // opacity: 1;
+            // visibility: visible;
+            transition: all ease 0.2s;
+          }
+          .toggle-submenu-icon {
+            font-size: 18px;
+            opacity: 1;
+            transition: transform ease 0.3s;
+          }
+        }
+    
+        .nav-collapsable {
+          // display: block;
+          .box-children {
+            max-height: 85vh;
+            overflow-y: auto;
+            width: 210px;
+          }
+          .children {
+            overflow: hidden;
+            position: absolute;
+            background-color:#3e3e3e;
+            margin-left: -40px;
+          }
+        }
+        
+    
+  
+        .nav-item > .children > .nav-item > .nav-link {
+          padding: 12px 24px 12px 58px;
+        }
+        
+        .nav-collapsable.open {
+          > .nav-link > .toggle-submenu-icon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+  }
+    
+    
+    .folded:not(.unfolded) {
+      
+      .app-navigation {
+  
+        .navigation {
+  
+          .nav-group {
+  
+            .group-title {
+  
+              .hint-text {
+                opacity: 0;
+                visibility: hidden;
+                // transform: translate3d(-1rem,0,0);
+              }
+              .hint-text-icon {
+                opacity: 1;
+                visibility: visible;
+                // left: 24px;
+              }
+            }
+        
+          }
+  
+          .nav-link {
+  
+            > .toggle-submenu-icon,
+            > .nav-link-badge {
+              visibility: hidden;
+            }
+      
+            > .nav-link-title {
+              visibility: hidden;
+              opacity: 0;
+              // transform: translate3d(-1rem,0,0);
+            }
+          }
+          .nav-item.open {
+            .children {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  
+  }
+  
+.nav-item {
+  &:hover {
+      .open{
+          > .nav-link {
+              ::before {
+                  opacity: 0;
+              }
+          }
+      }
+  }
+}
+.open {
+    &:hover {
+        > .nav-link {
+            ::before {
+                opacity: 1 !important;
+            }
+        }
+    }
+}

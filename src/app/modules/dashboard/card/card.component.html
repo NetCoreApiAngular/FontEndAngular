@@ -1,0 +1,154 @@
+<div class="row mx-0">
+    <div class="col-md-6">
+        <div class="bg-white border-l-4 border-success rounded px-3 py-2">
+            <h5 class="text-secondary text-uppercase">Thông tin cá nhân</h5>
+            <div class="mt-3">
+                <div class="d-flex mx-0">
+                    <div class="flex-grow-1">
+                        <div class="row mx-0">
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Họ: </label>
+                                    <p class="font-weight-600">Nguyễn</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Tên: </label>
+                                    <p class="font-weight-600">Trung</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Giới tính: </label>
+                                    <p class="font-weight-600">
+                                        Nam
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Nơi sinh: </label>
+                                    <p class="font-weight-600">Hà Nội</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Nguyên quán: </label>
+                                    <p class="font-weight-600">Hà Nội</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Ngày sinh: </label>
+                                    <p class="font-weight-600">
+                                        15/02/2000</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">CMND: </label>
+                                    <p class="font-weight-600">123213213</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="info-group">
+                                    <label class="text-secondary">Ngày cấp: </label>
+                                    <p class="font-weight-600">
+                                        14/09/2018</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="row mx-0  border rounded bg-white p-4">
+            <div class="col-12">
+                <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+                <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+                    <label class="text-secondary d-block m-0">Mã:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">{{qualification.code}}</p>
+                </div>
+                </div>
+
+
+            </div>
+            <div class="col-12">
+                <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+                <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+                    <label class="text-secondary d-block m-0">Người tạo:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">{{qualification.createdBy}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+                <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+                    <label class="text-secondary d-block m-0">Ngày tạo:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">
+                    {{qualification.createdDate | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+                <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+                    <label class="text-secondary d-block m-0">Mô tả:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">{{qualification.description}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+                <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+                    <label class="text-secondary d-block m-0">Tên:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">{{qualification.name}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mx-0 border-dashed-bottom border-color-light py-2">
+                <div class="col-lg-4 pl-0 pb-2 pb-lg-0">
+                    <label class="text-secondary d-block m-0">Ngày cập nhật:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">
+                    {{qualification.updatedDate | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row mx-0 py-2 border-dashed-bottom border-color-light align-items-center">
+                <div class="col-lg-4 pl-0">
+                    <label class="text-secondary d-block m-0">Trạng thái:</label>
+                </div>
+                <div class="col-lg-8 p-0">
+                    <p class="label-info m-0 text-primary font-weight-600">
+                    <span class="green-200 px-2 d-inline-flex rounded-full" *ngIf="qualification.status">
+                        <span class="text-uppercase font-weight-600 text-xs tracking-wide p-1">True</span>
+                      </span>
+                    <span class="red-200 px-2 d-inline-flex rounded-full" *ngIf="!qualification.status">
+                        <span class="text-uppercase font-weight-600 text-xs tracking-wide p-1">False</span>
+                      </span>
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

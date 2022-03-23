@@ -1,0 +1,63 @@
+<ng-container *ngIf="!item.hidden">
+
+    <!-- item.routerLink-->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink" (mouseenter)="toggleOpen($event)"
+        [routerLink]="item.routerLink" (mouseleave)="toggleClosed($event)">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- item.routerLink-->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="item.routerLink && !item.externalUrl && !item.function"
+        [routerLink]="item.routerLink" (click)="toggleOpen($event)"
+        [target]="item.openInNewTab ? '_blank' : '_self'">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- item.externalUrl -->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink && item.externalUrl && !item.function"
+        [href]="item.externalUrl" [target]="item.openInNewTab ? '_blank' : '_self'" (click)="onClickItem($event)">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+    <!-- item.function -->
+    <span class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink && !item.externalUrl && item.function"
+        (click)="item.function(); onClickItem($event)">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </span>
+
+    <!-- item.routerLink && item.function -->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="item.routerLink && !item.externalUrl && item.function"
+        [routerLink]="item.routerLink" [target]="item.openInNewTab ? '_blank' : '_self'"
+        (click)="item.function(); onClickItem($event)">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+
+    <!-- item.externalUrl && item.function -->
+    <a class="nav-link nav-link-child" [ngClass]="item.classes" *ngIf="!item.routerLink && item.externalUrl && item.function"
+        [href]="item.externalUrl" [target]="item.openInNewTab ? '_blank' : '_self'"
+        (click)="item.function(); onClickItem($event)">
+        <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+    </a>
+    <ng-template #itemContent >
+        <div id="box-children" class="d-flex align-items-center">
+            <!-- <mat-icon class="nav-link-icon" *ngIf="item.icon" fontSet="material-icons-outlined">{{item.icon}}</mat-icon> -->
+            <img style="margin-right: 7px" src="{{item.icon}}" alt="">
+            <span class="nav-link-title"  [innerHTML]="_i18nService.getTransByKey(item.translateKey)"></span>
+            <span class="nav-link-badge" *ngIf="item.badge"
+                [ngStyle]="{'background-color': item.badge.bg,'color': item.badge.color}">
+                {{item.badge.title}}
+            </span>
+            <span *ngIf="item.children" class="icon-right"><i class="fas"
+                [ngClass]="{ 'fa-angle-left': isOpen, 'fa-angle-right': !isOpen }"></i></span>
+        </div>
+    </ng-template>
+
+    <div (mouseenter)="isOpen = true" (mouseleave)="isOpen = false">
+        <div class="children" [@slideInOut]="isOpen">
+            <div class="box-children box-custom" [ngClass]="{ 'child-of-last': childOfLast}">
+                <ng-container *ngFor="let item of item.children">
+                    <app-item-children *ngIf="item.type=='item-child'" [item]="item" ></app-item-children>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>

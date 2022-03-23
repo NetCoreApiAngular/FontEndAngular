@@ -1,0 +1,26 @@
+<!-- <div *ngIf="visible" class="dialog-container">
+    <div class="dialog-wrapper">
+        <form (ngSubmit)="onSendNotificationMessage(f)" #f="ngForm">
+            <div class="dialog-header">
+                <h4 class="title">Gửi tin nhắn thông báo</h4>
+            </div>
+            <div class="dialog-body">
+                <mat-form-field class="col-12">
+                    <textarea matInput placeholder="Nội dung" name="message" [(ngModel)]="message" #message="ngModel"></textarea>
+                    <mat-error *ngIf="message.invalid && (message.dirty || message.touched || f.submitted)">
+                        <span *ngIf="message.errors?.required" [innerHTML]="'Commons.Error.ErrRequired' | translate"></span>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="em-separator separator-dashed"></div>
+            <div class="dialog-footer text-right">
+                <button mat-raised-button type="submit" color="primary">
+          <span translate>Commons.Button.Send</span>
+        </button>
+                <button mat-raised-button type="button" (click)="onCancel(false)">
+          <span translate>Commons.Button.Cancel</span>
+        </button>
+            </div>
+        </form>
+    </div>
+</div> -->

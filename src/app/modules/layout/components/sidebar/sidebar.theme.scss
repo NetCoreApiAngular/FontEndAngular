@@ -1,0 +1,20 @@
+@mixin side-bar-theme($themes) {
+
+    @each $theme, $value in $themes {
+        $background: map-get($value, background );
+        $primary: map-get($value, primary );
+        $primary-text: map-get($value, primary-text);
+        $secondary-text: map-get($value, secondary-text );
+        $accent: map-get($value, accent);
+
+        .theme-#{$theme} {
+            .navbar-sidebar {
+                border-right: 1px solid #e6e6e6;
+            }
+                
+        }
+         
+    }
+ 
+     
+ }

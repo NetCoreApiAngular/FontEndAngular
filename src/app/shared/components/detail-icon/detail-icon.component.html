@@ -1,0 +1,22 @@
+<!-- 
+    <button mat-icon-button matTooltip="Quay lại" class="mr-2" (click)="onGoBack()" type="button">
+        <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon fg-primary">arrow_back</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Cập nhật" class="mr-2" (click)="onUpdate()">
+        <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon fg-primary">create</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Xóa" (click)="onRemove()">
+        <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon fg-primary">delete_outline</mat-icon>
+    </button> -->
+    <button mat-icon-button class="mr-2 btn-custom btn-gray" (click)="onGoBack()" type="button">
+        <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon">arrow_back</mat-icon>
+        <span>Quay lại</span>
+    </button>
+    <button mat-icon-button class="mr-2 btn-custom btn-detail" (click)="onUpdate()" *ngIf="!isShowUpdate">
+        <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon">create</mat-icon>
+        <span>Cập nhật</span>
+    </button>
+    <button mat-icon-button class="btn-custom btn-delete" (click)="onRemove()">
+        <mat-icon fontSet="material-icons-outlined" class="custom-mat-icon">delete_outline</mat-icon>
+        <span>Xóa</span>
+    </button>

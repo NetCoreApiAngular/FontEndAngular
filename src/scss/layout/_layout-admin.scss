@@ -1,0 +1,68 @@
+.layout-container {
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  background-color: #f1f5f9;
+
+  .layout-content {
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      flex-grow: 1;
+      overflow-y: auto;
+
+      .router-content {
+        padding: 20px 10px;
+        flex-grow: 1;
+      }
+    }
+
+  }
+
+  &.sidebar--hide {
+    
+    .layout-content {
+      padding-left: 0;
+    }
+    
+  }
+
+  &.sidebar--minimize {
+    .layout-content {
+      padding-left: 64px;
+    }
+  }
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #b6b1b1c2;
+  border-radius: 6px;
+}
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//   background: rgba($color: #000000, $alpha: 0.2);
+//   border-radius: 6px;
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: rgba($color: #000000, $alpha: 0.3);
+// }

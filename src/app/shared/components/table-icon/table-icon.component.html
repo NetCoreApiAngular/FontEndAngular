@@ -1,0 +1,20 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>more_horiz</mat-icon>
+</button>
+<mat-menu #menu="matMenu" class="custom-matMenu">
+    <a mat-menu-item (click)="onView(element)" 
+        *ngIf="!isShow && this.roleService.actionIsAllow(moduleName, 'Listing')">
+        <mat-icon class="icon-in-menu">visibility</mat-icon>
+        <span>Xem chi tiết</span>
+    </a>
+    <a mat-menu-item (click)="onUpdate(element)"
+    *ngIf="this.roleService.actionIsAllow(moduleName, 'Edit')">
+        <mat-icon class="icon-in-menu">create</mat-icon>
+        <span>Cập nhật</span>
+    </a>
+    <a mat-menu-item (click)="onDelete(element)"
+    *ngIf="this.roleService.actionIsAllow(moduleName, 'Delete')">
+        <mat-icon class="icon-in-menu">delete_outline</mat-icon>
+        <span>Xóa</span>
+    </a>
+</mat-menu>

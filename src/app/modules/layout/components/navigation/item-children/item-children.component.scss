@@ -1,0 +1,22 @@
+.nav-link {
+    &:hover {
+        background-color:#00000054;
+    }
+}
+// .nav-link-child {
+//     position: relative;
+//     &::before {
+//         content: "";
+//         position: absolute;
+//         width: 7px;
+//         height: 7px;
+//         left: 7px;
+//         background-color: white;
+//         border-radius: 50%;
+//         top: 50%;
+//         transform: translateY(-50%);
+//     }
+//     #box-children-item {
+//         padding: 0 7px;
+//     }
+// }

@@ -1,0 +1,28 @@
+<div class="dialog-container">
+  <div class="dialog-wrapper">
+    <form (ngSubmit)="onUploadFile(f)" #f="ngForm">
+      <div class="dialog-header">
+        <h4 class="title" translate>Components.Upload.UploadExcel</h4>
+      </div>
+      <div class="dialog-body">
+        <input type="file" name="avatar" id="upload-avatar" (change)="onFileChange($event)" required />
+        <div *ngIf="excelValidationMsg" class="error">
+          <span [innerHtml]="excelValidationMsg"></span>
+        </div>
+      </div>
+      <div class="em-separator separator-dashed"></div>
+      <div class="dialog-footer text-right">
+        <button mat-raised-button type="button" color="primary" (click)="downloadTemplateFile()">
+          <span translate>Components.Upload.DownloadTemplate</span>
+        </button>
+
+        <button mat-raised-button type="submit" color="primary">
+          <span translate>Commons.Button.Upload</span>
+        </button>
+        <button mat-raised-button type="button" (click)="onCancel()">
+          <span translate>Commons.Button.Cancel</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
